@@ -15,7 +15,10 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists/CMakeFiles/LinkedLists.dir/DependInfo.cmake"
+  "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/DependInfo.cmake"
   "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/DependInfo.cmake"
+  "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/DependInfo.cmake"
+  "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

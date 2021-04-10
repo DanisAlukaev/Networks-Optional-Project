@@ -169,6 +169,45 @@ Nodes/fast:
 	$(MAKE) $(MAKESILENT) -f libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/build.make libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/build
 .PHONY : Nodes/fast
 
+#=============================================================================
+# Target rules for targets named PeerToPeer
+
+# Build rule for target.
+PeerToPeer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PeerToPeer
+.PHONY : PeerToPeer
+
+# fast build rule for target.
+PeerToPeer/fast:
+	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build
+.PHONY : PeerToPeer/fast
+
+#=============================================================================
+# Target rules for targets named Client
+
+# Build rule for target.
+Client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Client
+.PHONY : Client
+
+# fast build rule for target.
+Client/fast:
+	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build.make libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build
+.PHONY : Client/fast
+
+#=============================================================================
+# Target rules for targets named Server
+
+# Build rule for target.
+Server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Server
+.PHONY : Server
+
+# fast build rule for target.
+Server/fast:
+	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build.make libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build
+.PHONY : Server/fast
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -204,8 +243,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Client"
 	@echo "... LinkedLists"
 	@echo "... Nodes"
+	@echo "... PeerToPeer"
+	@echo "... Server"
 	@echo "... Source"
 	@echo "... src/main.o"
 	@echo "... src/main.i"

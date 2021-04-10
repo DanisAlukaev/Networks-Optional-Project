@@ -17,9 +17,15 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/CheckCSourceCompiles.cmake"
+  "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/CheckIncludeFile.cmake"
+  "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/CheckLibraryExists.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU-C.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+  "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
+  "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/FindPackageMessage.cmake"
+  "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/FindThreads.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU-C.cmake"
   "/opt/clion-2020.3.3/bin/cmake/linux/share/cmake-3.17/Modules/Platform/Linux-GNU.cmake"
@@ -31,6 +37,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.17.5/CMakeSystem.cmake"
   "../libs/data_structures/lists/CMakeLists.txt"
   "../libs/data_structures/lists/nodes/CMakeLists.txt"
+  "../libs/networking/client/CMakeLists.txt"
+  "../libs/networking/peer_to_peer/CMakeLists.txt"
+  "../libs/networking/server/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -44,6 +53,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/data_structures/lists/CMakeFiles/CMakeDirectoryInformation.cmake"
   "libs/data_structures/lists/nodes/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libs/networking/peer_to_peer/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libs/networking/peer_to_peer/build_client/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libs/networking/peer_to_peer/build_server/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -51,4 +63,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Source.dir/DependInfo.cmake"
   "libs/data_structures/lists/CMakeFiles/LinkedLists.dir/DependInfo.cmake"
   "libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/DependInfo.cmake"
+  "libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/DependInfo.cmake"
+  "libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/DependInfo.cmake"
+  "libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/DependInfo.cmake"
   )

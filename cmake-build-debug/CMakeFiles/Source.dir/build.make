@@ -100,7 +100,11 @@ Source_EXTERNAL_OBJECTS =
 Source: CMakeFiles/Source.dir/src/main.c.o
 Source: CMakeFiles/Source.dir/build.make
 Source: libs/data_structures/lists/libLinkedLists.a
+Source: libs/networking/peer_to_peer/libPeerToPeer.a
+Source: libs/data_structures/lists/libLinkedLists.a
 Source: libs/data_structures/lists/nodes/libNodes.a
+Source: libs/networking/peer_to_peer/build_client/libClient.a
+Source: libs/networking/peer_to_peer/build_server/libServer.a
 Source: CMakeFiles/Source.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Source"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Source.dir/link.txt --verbose=$(VERBOSE)

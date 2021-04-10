@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.c
+client.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h
+stdlib.h
+-
+arpa/inet.h
+-
+string.h
+-
+unistd.h
+-
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h
+sys/socket.h
+-
+netinet/in.h
+-
+

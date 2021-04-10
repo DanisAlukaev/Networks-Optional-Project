@@ -5,7 +5,7 @@
 		<Option title="Source"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;CMake Files\libs\data_structures\lists\;CMake Files\libs\data_structures\lists\nodes\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;CMake Files\libs\data_structures\lists\;CMake Files\libs\data_structures\lists\nodes\;CMake Files\libs\networking\;CMake Files\libs\networking\peer_to_peer\;CMake Files\libs\networking\client\;CMake Files\libs\networking\server\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"/>
@@ -151,6 +151,120 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/data_structures/lists/nodes/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="PeerToPeer">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/libPeerToPeer.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 PeerToPeer"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PeerToPeer/fast">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/libPeerToPeer.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 PeerToPeer/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Client">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/libClient.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 Client"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Client/fast">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/libClient.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 Client/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Server">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/libServer.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 Server"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Server/fast">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/libServer.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 Server/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.c">
 			<Option target="LinkedLists"/>
@@ -164,6 +278,24 @@
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h">
 			<Option target="Nodes"/>
 		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.c">
+			<Option target="Client"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h">
+			<Option target="Client"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.c">
+			<Option target="PeerToPeer"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.h">
+			<Option target="PeerToPeer"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.c">
+			<Option target="Server"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h">
+			<Option target="Server"/>
+		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/src/main.c">
 			<Option target="Source"/>
 		</Unit>
@@ -175,6 +307,15 @@
 		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\libs\data_structures\lists\nodes\"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\networking\peer_to_peer\"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\networking\client\"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\networking\server\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

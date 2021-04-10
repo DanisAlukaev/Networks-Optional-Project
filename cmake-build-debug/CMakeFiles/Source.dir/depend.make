@@ -3,5 +3,8 @@
 
 CMakeFiles/Source.dir/src/main.c.o: ../libs/data_structures/lists/linked_list.h
 CMakeFiles/Source.dir/src/main.c.o: ../libs/data_structures/lists/nodes/node.h
+CMakeFiles/Source.dir/src/main.c.o: ../libs/networking/client/client.h
+CMakeFiles/Source.dir/src/main.c.o: ../libs/networking/peer_to_peer/peer2peer.h
+CMakeFiles/Source.dir/src/main.c.o: ../libs/networking/server/server.h
 CMakeFiles/Source.dir/src/main.c.o: ../src/main.c
 

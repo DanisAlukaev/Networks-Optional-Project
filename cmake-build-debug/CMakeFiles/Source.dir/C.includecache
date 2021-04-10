@@ -12,9 +12,35 @@ nodes/node.h
 
 /shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
 
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h
+sys/socket.h
+-
+netinet/in.h
+-
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.h
+../server/server.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+../../data_structures/lists/linked_list.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+sys/socket.h
+-
+netinet/in.h
+-
+
 /shared/Study/2020-2021/S21/Networks/Optional Project/Source/src/main.c
+../libs/networking/peer_to_peer/peer2peer.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.h
+../libs/networking/client/client.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h
+string.h
+-
+unistd.h
+-
 stdio.h
 -
-../libs/data_structures/lists/linked_list.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+arpa/inet.h
+-
 
