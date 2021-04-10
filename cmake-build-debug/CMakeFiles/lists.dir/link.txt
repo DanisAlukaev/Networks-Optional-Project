@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblists.a  CMakeFiles/lists.dir/libs/data_structures/lists/linked_list.c.o
+/usr/bin/ranlib liblists.a

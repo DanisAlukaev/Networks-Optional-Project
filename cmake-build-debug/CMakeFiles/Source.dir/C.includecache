@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+nodes/node.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
+
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/src/main.c
+stdio.h
+-
+../libs/data_structures/lists/linked_list.h
+/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+
