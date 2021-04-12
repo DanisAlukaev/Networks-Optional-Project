@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/makshe/CLionProjects/testing2/main.c
+stdio.h
+-
+SDL2/SDL.h
+-
+SDL2/SDL_timer.h
+-
+sprite.h
+/home/makshe/CLionProjects/testing2/sprite.h
+map.h
+/home/makshe/CLionProjects/testing2/map.h
+
+/home/makshe/CLionProjects/testing2/map.h
+
+/home/makshe/CLionProjects/testing2/sprite.h
+
