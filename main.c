@@ -1,15 +1,19 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
-#include "sprite.h"
-#include "map.h"
+#include "sprite/sprite.h"
+#include "map/map.h"
 
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 #define SPEED (70)
 
-int main(void)
-{
+int main(void){
+
+    int window_width, window_height;
+    window_width = WINDOW_WIDTH;
+    window_height = WINDOW_HEIGHT;
+
     // attempt to initialize graphics and timer system
         if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER) != 0)
     {
@@ -20,7 +24,7 @@ int main(void)
     SDL_Window* window = SDL_CreateWindow("Tanks 667",
                                           SDL_WINDOWPOS_CENTERED,
                                           SDL_WINDOWPOS_CENTERED,
-                                          640, 480, 0);
+                                          window_width, window_height, 0);
     if (!window)
     {
         printf("error creating window: %s\n", SDL_GetError());
@@ -46,14 +50,12 @@ int main(void)
     Sprite sprite;
     sprite = sprite_init(sprite, window, renderer);
 
-
     //clear the window
     SDL_RenderClear(renderer);
 
-
     //center the sprite
-    float x_pos = (float)(WINDOW_WIDTH - sprite.width) / 2;
-    float y_pos = (float)(WINDOW_HEIGHT - sprite.height) / 2;
+    float x_pos = (float)(window_width - sprite.dest.w)/2;
+    float y_pos = (float)(window_height - sprite.dest.h)/2;
     float y_vel;
     float x_vel;
 
@@ -66,8 +68,13 @@ int main(void)
     int left = 0;
     int right = 0;
 
+    //keep track of direction of the sprite
+    int dir = 0;
+
     while(!close_requested){
+
         SDL_Event event;
+
         while(SDL_PollEvent(&event)){
             switch (event.type){
                 case SDL_QUIT:
@@ -76,31 +83,31 @@ int main(void)
 
                 case SDL_KEYDOWN:
                     switch (event.key.keysym.scancode) {
-                        case SDL_SCANCODE_DOWN:
-                            down = 1;
-                            sprite.src.x = sprite.cur_frame;
-                            break;
                         case SDL_SCANCODE_UP:
                             up = 1;
-                            sprite.src.x = 0;
+                            dir = 0;
+                            break;
+                        case SDL_SCANCODE_DOWN:
+                            down = 1;
+                            dir = 1;
                             break;
                         case SDL_SCANCODE_RIGHT:
                             right = 1;
-                            sprite.src.x = sprite.cur_frame * 2;
+                            dir = 2;
                             break;
                         case SDL_SCANCODE_LEFT:
                             left = 1;
-                            sprite.src.x = sprite.cur_frame * 3;
+                            dir = 3;
                             break;
                     }
                     break;
                 case SDL_KEYUP:
                     switch (event.key.keysym.scancode) {
-                        case SDL_SCANCODE_DOWN:
-                            down = 0;
-                            break;
                         case SDL_SCANCODE_UP:
                             up = 0;
+                            break;
+                        case SDL_SCANCODE_DOWN:
+                            down = 0;
                             break;
                         case SDL_SCANCODE_RIGHT:
                             right = 0;
@@ -128,20 +135,44 @@ int main(void)
         //collision detection:
         if(x_pos <= 0) x_pos = 0;
         if(y_pos <= 0) y_pos = 0;
-        if(x_pos >= WINDOW_WIDTH - sprite.width) x_pos = WINDOW_WIDTH - sprite.width;
-        if(y_pos >= WINDOW_HEIGHT - sprite.height) y_pos = WINDOW_HEIGHT - sprite.height;
+        if(x_pos >= WINDOW_WIDTH - sprite.dest.w) x_pos = WINDOW_WIDTH - sprite.dest.w;
+        if(y_pos >= WINDOW_HEIGHT - sprite.dest.h) y_pos = WINDOW_HEIGHT - sprite.dest.h;
 
         sprite.dest.y = (int) y_pos;
         sprite.dest.x = (int) x_pos;
 
+        //clearing the renderer
         SDL_RenderClear(renderer);
 
+        //copying map to the renderer
         SDL_RenderCopy(renderer, map.map_texture, NULL, NULL);
-        SDL_RenderCopy(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest);
+
+
+        //rotating sprite according to its direction
+        switch (dir){
+            case 0:     //sprite is facing up
+                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 0, NULL, 1);
+                break;
+
+            case 1:     //sprite is facing down
+                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 180, NULL, 1);
+                break;
+
+            case 2:     //sprite is facing right
+                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 90, NULL, 1);
+                break;
+
+            case 3:     //sprite is facing left
+                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 270, NULL, 1);
+                break;
+
+        }
+
+        //SDL_RenderCopy(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest);
         SDL_RenderPresent(renderer);
 
 
-        SDL_Delay(10);
+        SDL_Delay(0);
     }
 
 

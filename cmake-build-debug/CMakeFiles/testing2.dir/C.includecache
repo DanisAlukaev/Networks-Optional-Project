@@ -6,19 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/makshe/CLionProjects/testing2/main.c
+/home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.h
+
+/home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.c
 stdio.h
 -
 SDL2/SDL.h
 -
 SDL2/SDL_timer.h
 -
+SDL2/SDL_image.h
+-
 sprite.h
-/home/makshe/CLionProjects/testing2/sprite.h
-map.h
-/home/makshe/CLionProjects/testing2/map.h
+/home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.h
 
-/home/makshe/CLionProjects/testing2/map.h
-
-/home/makshe/CLionProjects/testing2/sprite.h
+/home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.h
+../map/map.h
+/home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.h
 
