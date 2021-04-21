@@ -67,10 +67,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/makshe/CLionProjects/testing2
+CMAKE_SOURCE_DIR = /home/makshe/PullFolder/S21-Networks-Optional-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/makshe/CLionProjects/testing2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles /home/makshe/CLionProjects/testing2/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +142,33 @@ testing2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/build
 .PHONY : testing2/fast
 
+EventHanlder/EventHandler.o: EventHanlder/EventHandler.c.o
+
+.PHONY : EventHanlder/EventHandler.o
+
+# target to build an object file
+EventHanlder/EventHandler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o
+.PHONY : EventHanlder/EventHandler.c.o
+
+EventHanlder/EventHandler.i: EventHanlder/EventHandler.c.i
+
+.PHONY : EventHanlder/EventHandler.i
+
+# target to preprocess a source file
+EventHanlder/EventHandler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.i
+.PHONY : EventHanlder/EventHandler.c.i
+
+EventHanlder/EventHandler.s: EventHanlder/EventHandler.c.s
+
+.PHONY : EventHanlder/EventHandler.s
+
+# target to generate assembly for a file
+EventHanlder/EventHandler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.s
+.PHONY : EventHanlder/EventHandler.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -169,59 +196,59 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/main.c.s
 .PHONY : main.c.s
 
-map.o: map.c.o
+map/map.o: map/map.c.o
 
-.PHONY : map.o
-
-# target to build an object file
-map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/map.c.o
-.PHONY : map.c.o
-
-map.i: map.c.i
-
-.PHONY : map.i
-
-# target to preprocess a source file
-map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/map.c.i
-.PHONY : map.c.i
-
-map.s: map.c.s
-
-.PHONY : map.s
-
-# target to generate assembly for a file
-map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/map.c.s
-.PHONY : map.c.s
-
-sprite.o: sprite.c.o
-
-.PHONY : sprite.o
+.PHONY : map/map.o
 
 # target to build an object file
-sprite.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/sprite.c.o
-.PHONY : sprite.c.o
+map/map.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/map/map.c.o
+.PHONY : map/map.c.o
 
-sprite.i: sprite.c.i
+map/map.i: map/map.c.i
 
-.PHONY : sprite.i
+.PHONY : map/map.i
 
 # target to preprocess a source file
-sprite.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/sprite.c.i
-.PHONY : sprite.c.i
+map/map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/map/map.c.i
+.PHONY : map/map.c.i
 
-sprite.s: sprite.c.s
+map/map.s: map/map.c.s
 
-.PHONY : sprite.s
+.PHONY : map/map.s
 
 # target to generate assembly for a file
-sprite.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/sprite.c.s
-.PHONY : sprite.c.s
+map/map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/map/map.c.s
+.PHONY : map/map.c.s
+
+sprite/sprite.o: sprite/sprite.c.o
+
+.PHONY : sprite/sprite.o
+
+# target to build an object file
+sprite/sprite.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/sprite/sprite.c.o
+.PHONY : sprite/sprite.c.o
+
+sprite/sprite.i: sprite/sprite.c.i
+
+.PHONY : sprite/sprite.i
+
+# target to preprocess a source file
+sprite/sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/sprite/sprite.c.i
+.PHONY : sprite/sprite.c.i
+
+sprite/sprite.s: sprite/sprite.c.s
+
+.PHONY : sprite/sprite.s
+
+# target to generate assembly for a file
+sprite/sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/sprite/sprite.c.s
+.PHONY : sprite/sprite.c.s
 
 # Help Target
 help:
@@ -232,15 +259,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... testing2"
+	@echo "... EventHanlder/EventHandler.o"
+	@echo "... EventHanlder/EventHandler.i"
+	@echo "... EventHanlder/EventHandler.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... map.o"
-	@echo "... map.i"
-	@echo "... map.s"
-	@echo "... sprite.o"
-	@echo "... sprite.i"
-	@echo "... sprite.s"
+	@echo "... map/map.o"
+	@echo "... map/map.i"
+	@echo "... map/map.s"
+	@echo "... sprite/sprite.o"
+	@echo "... sprite/sprite.i"
+	@echo "... sprite/sprite.s"
 .PHONY : help
 
 

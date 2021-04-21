@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o"
   "CMakeFiles/testing2.dir/main.c.o"
-  "CMakeFiles/testing2.dir/map.c.o"
-  "CMakeFiles/testing2.dir/sprite.c.o"
+  "CMakeFiles/testing2.dir/map/map.c.o"
+  "CMakeFiles/testing2.dir/sprite/sprite.c.o"
   "testing2"
   "testing2.pdb"
 )

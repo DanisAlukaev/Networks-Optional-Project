@@ -62,10 +62,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/makshe/CLionProjects/testing2
+CMAKE_SOURCE_DIR = /home/makshe/PullFolder/S21-Networks-Optional-Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/makshe/CLionProjects/testing2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/testing2.dir/depend.make
@@ -78,58 +78,73 @@ include CMakeFiles/testing2.dir/flags.make
 
 CMakeFiles/testing2.dir/main.c.o: CMakeFiles/testing2.dir/flags.make
 CMakeFiles/testing2.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/testing2.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/main.c.o -c /home/makshe/CLionProjects/testing2/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/testing2.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/main.c.o -c /home/makshe/PullFolder/S21-Networks-Optional-Project/main.c
 
 CMakeFiles/testing2.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/testing2.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/CLionProjects/testing2/main.c > CMakeFiles/testing2.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/PullFolder/S21-Networks-Optional-Project/main.c > CMakeFiles/testing2.dir/main.c.i
 
 CMakeFiles/testing2.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/testing2.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/CLionProjects/testing2/main.c -o CMakeFiles/testing2.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/PullFolder/S21-Networks-Optional-Project/main.c -o CMakeFiles/testing2.dir/main.c.s
 
-CMakeFiles/testing2.dir/sprite.c.o: CMakeFiles/testing2.dir/flags.make
-CMakeFiles/testing2.dir/sprite.c.o: ../sprite.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/testing2.dir/sprite.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/sprite.c.o -c /home/makshe/CLionProjects/testing2/sprite.c
+CMakeFiles/testing2.dir/sprite/sprite.c.o: CMakeFiles/testing2.dir/flags.make
+CMakeFiles/testing2.dir/sprite/sprite.c.o: ../sprite/sprite.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/testing2.dir/sprite/sprite.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/sprite/sprite.c.o -c /home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.c
 
-CMakeFiles/testing2.dir/sprite.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/testing2.dir/sprite.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/CLionProjects/testing2/sprite.c > CMakeFiles/testing2.dir/sprite.c.i
+CMakeFiles/testing2.dir/sprite/sprite.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/testing2.dir/sprite/sprite.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.c > CMakeFiles/testing2.dir/sprite/sprite.c.i
 
-CMakeFiles/testing2.dir/sprite.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/testing2.dir/sprite.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/CLionProjects/testing2/sprite.c -o CMakeFiles/testing2.dir/sprite.c.s
+CMakeFiles/testing2.dir/sprite/sprite.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/testing2.dir/sprite/sprite.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.c -o CMakeFiles/testing2.dir/sprite/sprite.c.s
 
-CMakeFiles/testing2.dir/map.c.o: CMakeFiles/testing2.dir/flags.make
-CMakeFiles/testing2.dir/map.c.o: ../map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/testing2.dir/map.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/map.c.o -c /home/makshe/CLionProjects/testing2/map.c
+CMakeFiles/testing2.dir/map/map.c.o: CMakeFiles/testing2.dir/flags.make
+CMakeFiles/testing2.dir/map/map.c.o: ../map/map.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/testing2.dir/map/map.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/map/map.c.o -c /home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.c
 
-CMakeFiles/testing2.dir/map.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/testing2.dir/map.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/CLionProjects/testing2/map.c > CMakeFiles/testing2.dir/map.c.i
+CMakeFiles/testing2.dir/map/map.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/testing2.dir/map/map.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.c > CMakeFiles/testing2.dir/map/map.c.i
 
-CMakeFiles/testing2.dir/map.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/testing2.dir/map.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/CLionProjects/testing2/map.c -o CMakeFiles/testing2.dir/map.c.s
+CMakeFiles/testing2.dir/map/map.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/testing2.dir/map/map.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.c -o CMakeFiles/testing2.dir/map/map.c.s
+
+CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o: CMakeFiles/testing2.dir/flags.make
+CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o: ../EventHanlder/EventHandler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o -c /home/makshe/PullFolder/S21-Networks-Optional-Project/EventHanlder/EventHandler.c
+
+CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/makshe/PullFolder/S21-Networks-Optional-Project/EventHanlder/EventHandler.c > CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.i
+
+CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/makshe/PullFolder/S21-Networks-Optional-Project/EventHanlder/EventHandler.c -o CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.s
 
 # Object files for target testing2
 testing2_OBJECTS = \
 "CMakeFiles/testing2.dir/main.c.o" \
-"CMakeFiles/testing2.dir/sprite.c.o" \
-"CMakeFiles/testing2.dir/map.c.o"
+"CMakeFiles/testing2.dir/sprite/sprite.c.o" \
+"CMakeFiles/testing2.dir/map/map.c.o" \
+"CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o"
 
 # External object files for target testing2
 testing2_EXTERNAL_OBJECTS =
 
 testing2: CMakeFiles/testing2.dir/main.c.o
-testing2: CMakeFiles/testing2.dir/sprite.c.o
-testing2: CMakeFiles/testing2.dir/map.c.o
+testing2: CMakeFiles/testing2.dir/sprite/sprite.c.o
+testing2: CMakeFiles/testing2.dir/map/map.c.o
+testing2: CMakeFiles/testing2.dir/EventHanlder/EventHandler.c.o
 testing2: CMakeFiles/testing2.dir/build.make
 testing2: CMakeFiles/testing2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable testing2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable testing2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testing2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -142,6 +157,6 @@ CMakeFiles/testing2.dir/clean:
 .PHONY : CMakeFiles/testing2.dir/clean
 
 CMakeFiles/testing2.dir/depend:
-	cd /home/makshe/CLionProjects/testing2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/makshe/CLionProjects/testing2 /home/makshe/CLionProjects/testing2 /home/makshe/CLionProjects/testing2/cmake-build-debug /home/makshe/CLionProjects/testing2/cmake-build-debug /home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles/testing2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/makshe/PullFolder/S21-Networks-Optional-Project /home/makshe/PullFolder/S21-Networks-Optional-Project /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug /home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/testing2.dir/depend
 

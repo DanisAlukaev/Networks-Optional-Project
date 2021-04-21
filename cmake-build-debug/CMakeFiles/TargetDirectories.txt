@@ -1,3 +1,3 @@
-/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/makshe/CLionProjects/testing2/cmake-build-debug/CMakeFiles/testing2.dir
+/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir
