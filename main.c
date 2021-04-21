@@ -6,7 +6,7 @@
 
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
-#define SPEED (70)
+
 
 int main(void){
 
@@ -53,93 +53,14 @@ int main(void){
     //clear the window
     SDL_RenderClear(renderer);
 
-    //center the sprite
-    float x_pos = (float)(window_width - sprite.dest.w)/2;
-    float y_pos = (float)(window_height - sprite.dest.h)/2;
-    float y_vel;
-    float x_vel;
-
     //keep track whether close button was pressed
     int close_requested = 0;
 
-    //keep track of inputs
-    int up = 0;
-    int down = 0;
-    int left = 0;
-    int right = 0;
-
-    //keep track of direction of the sprite
-    int dir = 0;
-
     while(!close_requested){
-
         SDL_Event event;
 
-        while(SDL_PollEvent(&event)){
-            switch (event.type){
-                case SDL_QUIT:
-                    close_requested = 1;
-                    break;
+        EventHandler(event, &sprite, &close_requested);
 
-                case SDL_KEYDOWN:
-                    switch (event.key.keysym.scancode) {
-                        case SDL_SCANCODE_UP:
-                            up = 1;
-                            dir = 0;
-                            break;
-                        case SDL_SCANCODE_DOWN:
-                            down = 1;
-                            dir = 1;
-                            break;
-                        case SDL_SCANCODE_RIGHT:
-                            right = 1;
-                            dir = 2;
-                            break;
-                        case SDL_SCANCODE_LEFT:
-                            left = 1;
-                            dir = 3;
-                            break;
-                    }
-                    break;
-                case SDL_KEYUP:
-                    switch (event.key.keysym.scancode) {
-                        case SDL_SCANCODE_UP:
-                            up = 0;
-                            break;
-                        case SDL_SCANCODE_DOWN:
-                            down = 0;
-                            break;
-                        case SDL_SCANCODE_RIGHT:
-                            right = 0;
-                            break;
-                        case SDL_SCANCODE_LEFT:
-                            left = 0;
-                            break;
-                    }
-                    break;
-            }
-        }
-
-
-        //determine the velocity
-        x_vel = y_vel = 0;
-        if (up && !down && !right && !left) y_vel = -SPEED;
-        if (down && !up && !right && !left) y_vel = SPEED;
-        if (left && !right && !up && !down) x_vel = -SPEED;
-        if (right && !left && !up && !down) x_vel = SPEED;
-
-        //update positions:
-        x_pos += x_vel/45;
-        y_pos += y_vel/45;
-
-        //collision detection:
-        if(x_pos <= 0) x_pos = 0;
-        if(y_pos <= 0) y_pos = 0;
-        if(x_pos >= WINDOW_WIDTH - sprite.dest.w) x_pos = WINDOW_WIDTH - sprite.dest.w;
-        if(y_pos >= WINDOW_HEIGHT - sprite.dest.h) y_pos = WINDOW_HEIGHT - sprite.dest.h;
-
-        sprite.dest.y = (int) y_pos;
-        sprite.dest.x = (int) x_pos;
 
         //clearing the renderer
         SDL_RenderClear(renderer);
@@ -149,7 +70,7 @@ int main(void){
 
 
         //rotating sprite according to its direction
-        switch (dir){
+        switch (sprite.direction){
             case 0:     //sprite is facing up
                 SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 0, NULL, 1);
                 break;
@@ -171,10 +92,8 @@ int main(void){
         //SDL_RenderCopy(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest);
         SDL_RenderPresent(renderer);
 
-
         SDL_Delay(0);
     }
-
 
     // clean up resources before exiting
     SDL_DestroyRenderer(renderer);

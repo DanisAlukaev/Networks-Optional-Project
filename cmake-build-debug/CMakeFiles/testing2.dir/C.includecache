@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/makshe/PullFolder/S21-Networks-Optional-Project/main.c
+stdio.h
+-
+SDL2/SDL.h
+-
+SDL2/SDL_timer.h
+-
+sprite/sprite.h
+/home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.h
+map/map.h
+/home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.h
+
 /home/makshe/PullFolder/S21-Networks-Optional-Project/map/map.h
 
 /home/makshe/PullFolder/S21-Networks-Optional-Project/sprite/sprite.c
