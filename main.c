@@ -3,13 +3,17 @@
 #include <SDL2/SDL_timer.h>
 #include "sprite/sprite.h"
 #include "map/map.h"
-
+#include "sprite/bullet/bullet.h"
+#include <SDL2/SDL_image.h>
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 
+#define MAX_BULLETS 1000
+SDL_Texture *bulletTexture;
+struct Bullet *bullets[MAX_BULLETS] = { NULL };
 
 int main(void){
-
+    int shoot=0;
     int window_width, window_height;
     window_width = WINDOW_WIDTH;
     window_height = WINDOW_HEIGHT;
@@ -42,6 +46,16 @@ int main(void){
         SDL_Quit();
         return 1;
     }
+    SDL_Surface *bullet = IMG_Load("/home/talgat/Downloads/Project.2/S21-Networks-Optional-Project/resources/bullet.png");
+    if(!bullet)
+    {
+        printf("Cannot find bullet\n");
+        return 1;
+    }
+
+    bulletTexture = SDL_CreateTextureFromSurface(renderer, bullet);
+    SDL_FreeSurface(bullet);
+
 
 
     Map map;
@@ -59,7 +73,7 @@ int main(void){
     while(!close_requested){
         SDL_Event event;
 
-        EventHandler(event, &sprite, &close_requested);
+        EventHandler(event, &sprite, &close_requested, shoot,bullets);
 
 
         //clearing the renderer
@@ -67,7 +81,11 @@ int main(void){
 
         //copying map to the renderer
         SDL_RenderCopy(renderer, map.map_texture, NULL, NULL);
-
+        for(int i = 0; i < MAX_BULLETS; i++) if(bullets[i])
+        {
+            SDL_Rect rect = { (int)bullets[i]->x,(int) bullets[i]->y, 8, 8 };
+            SDL_RenderCopy(renderer, bulletTexture, NULL, &rect);
+        }
 
         //rotating sprite according to its direction
         switch (sprite.direction){
