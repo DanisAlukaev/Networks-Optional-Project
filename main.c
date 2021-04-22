@@ -5,6 +5,8 @@
 #include "map/map.h"
 #include "bullet/bullet.h"
 #include <SDL2/SDL_image.h>
+#include <time.h>
+
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 
@@ -74,11 +76,17 @@ int main(void){
     //keep track whether close button was pressed
     int close_requested = 0;
 
+    long start, end;
+    start = -1;
+    end = clock();
+
     while(!close_requested){
+
         SDL_Event event;
 
 
-        EventHandler(event, &sprite, &close_requested, shoot, bullets);
+
+        EventHandler(event, &sprite, &close_requested, shoot, bullets, &start, &end);
 
         //clearing the renderer
         SDL_RenderClear(renderer);

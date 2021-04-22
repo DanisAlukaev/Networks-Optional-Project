@@ -3,6 +3,7 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 #include <unistd.h>
+#include <time.h>
 #include "sprite.h"
 #include "../bullet/bullet.h"
 
@@ -54,7 +55,8 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 }
 
 
-void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int shoot, Bullet *bullets[]){
+void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int shoot, Bullet *bullets[], long *start, long *end){
+
 
     while(SDL_PollEvent(&event)){
         switch (event.type){
@@ -81,23 +83,20 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int sho
                         sprite->direction = 3;
                         break;
                     case SDL_SCANCODE_SPACE:
-                        shoot=1;
-                        if (sprite->direction==0)
-                        {
-                            addBullet(bullets, sprite->x_pos+sprite->dest.w/2-3, sprite->y_pos, 0, -3);
-                        }
-
-                        else if (sprite->direction==1)
-                        {
-                            addBullet(bullets, sprite->x_pos+sprite->dest.w/2-3, sprite->y_pos+30, 0, 3);
-                        }
-                        else if(sprite->direction==2)
-                        {
-                            addBullet(bullets, sprite->x_pos+35, sprite->y_pos+sprite->dest.w/2+1, 3, 0);
-                        }
-                        else if (sprite->direction==3)
-                        {
-                            addBullet(bullets, sprite->x_pos+10, sprite->y_pos+(sprite->dest.w)/2+2, -3, 0);
+                        printf("start: %ld, end: %ld \n", *start, *end);
+                        *end = clock();
+                        if((*end - *start) >= 50000) {
+                            *start = clock();
+                            shoot = 1;
+                            if (sprite->direction == 0) {
+                                addBullet(bullets, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos, 0, -3);
+                            } else if (sprite->direction == 1) {
+                                addBullet(bullets, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos + 30, 0, 3);
+                            } else if (sprite->direction == 2) {
+                                addBullet(bullets, sprite->x_pos + 35, sprite->y_pos + sprite->dest.w / 2 + 1, 3, 0);
+                            } else if (sprite->direction == 3) {
+                                addBullet(bullets, sprite->x_pos + 10, sprite->y_pos + (sprite->dest.w) / 2 + 2, -3, 0);
+                            }
                         }
 
                 }
