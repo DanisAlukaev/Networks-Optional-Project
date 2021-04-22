@@ -142,6 +142,33 @@ testing2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/build
 .PHONY : testing2/fast
 
+bullet/bullet.o: bullet/bullet.c.o
+
+.PHONY : bullet/bullet.o
+
+# target to build an object file
+bullet/bullet.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/bullet/bullet.c.o
+.PHONY : bullet/bullet.c.o
+
+bullet/bullet.i: bullet/bullet.c.i
+
+.PHONY : bullet/bullet.i
+
+# target to preprocess a source file
+bullet/bullet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/bullet/bullet.c.i
+.PHONY : bullet/bullet.c.i
+
+bullet/bullet.s: bullet/bullet.c.s
+
+.PHONY : bullet/bullet.s
+
+# target to generate assembly for a file
+bullet/bullet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/bullet/bullet.c.s
+.PHONY : bullet/bullet.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -232,6 +259,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... testing2"
+	@echo "... bullet/bullet.o"
+	@echo "... bullet/bullet.i"
+	@echo "... bullet/bullet.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

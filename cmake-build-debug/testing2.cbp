@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/makshe/PullFolder/S21-Networks-Optional-Project/bullet/bullet.c">
+			<Option target="testing2"/>
+		</Unit>
+		<Unit filename="/home/makshe/PullFolder/S21-Networks-Optional-Project/bullet/bullet.h">
+			<Option target="testing2"/>
+		</Unit>
 		<Unit filename="/home/makshe/PullFolder/S21-Networks-Optional-Project/main.c">
 			<Option target="testing2"/>
 		</Unit>

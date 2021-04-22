@@ -1,9 +1,9 @@
 #ifndef TESTING2_SPRITE_H
 #define TESTING2_SPRITE_H
-
-
 #include "../map/map.h"
-#include "bullet/bullet.h"
+#include "../bullet/bullet.h"
+
+
 typedef struct Sprite{
     SDL_Texture* sprite_texture;
     float x_pos, y_pos;
@@ -17,7 +17,7 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer);
 
 void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int shoot, Bullet *bullets[]);
 
-void MoveSprite(SDL_Window *window, SDL_Renderer *renderer, Sprite *sprite);
 
+void RenderSprite(SDL_Renderer *renderer, Sprite *sprite);
 
 #endif //TESTING2_SPRITE_H

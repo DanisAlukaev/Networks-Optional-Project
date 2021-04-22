@@ -2,15 +2,16 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
+#include <unistd.h>
 #include "sprite.h"
-#include "bullet/bullet.h"
+#include "../bullet/bullet.h"
 
 
 #define MAX_BULLETS 1000
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 #define SPEED (70)
-#define SPRITESHEET ("/home/talgat/Downloads/Project.2/S21-Networks-Optional-Project/resources/playersprite.png")
+#define SPRITESHEET ("/home/makshe/Downloads/S21-Networks-Optional-Project2/S21-Networks-Optional-Project/resources/playersprite.png")
 
 Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 
@@ -81,7 +82,16 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int sho
                         break;
                     case SDL_SCANCODE_SPACE:
                         shoot=1;
-                        if(sprite->direction==2)
+                        if (sprite->direction==0)
+                        {
+                            addBullet(bullets, sprite->x_pos+sprite->dest.w/2-3, sprite->y_pos, 0, -3);
+                        }
+
+                        else if (sprite->direction==1)
+                        {
+                            addBullet(bullets, sprite->x_pos+sprite->dest.w/2-3, sprite->y_pos+30, 0, 3);
+                        }
+                        else if(sprite->direction==2)
                         {
                             addBullet(bullets, sprite->x_pos+35, sprite->y_pos+sprite->dest.w/2+1, 3, 0);
                         }
@@ -89,14 +99,7 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int sho
                         {
                             addBullet(bullets, sprite->x_pos+10, sprite->y_pos+(sprite->dest.w)/2+2, -3, 0);
                         }
-                        else if (sprite->direction==0)
-                        {
-                            addBullet(bullets, sprite->x_pos+sprite->dest.w/2-3, sprite->y_pos, 0, -3);
-                        }
-                        else if (sprite->direction==1)
-                        {
-                            addBullet(bullets, sprite->x_pos+sprite->dest.w/2-3, sprite->y_pos+30, 0, 3);
-                        }
+
                 }
                 break;
             case SDL_KEYUP:
@@ -149,6 +152,7 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int sho
         bullets[i]->y += bullets[i]->dy;
         //simple coll. detection
         if(bullets[i]->x < -1000 || bullets[i]->x > 1000 || bullets[i]->y < -1000 || bullets[i]->y > 1000)
+            //bullets[i]->x=10;
             remove_bullet(i, bullets);
     }
 
@@ -156,7 +160,27 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, int sho
 
 
 
+void RenderSprite(SDL_Renderer *renderer, Sprite *sprite){
+    switch (sprite->direction){
+        case 0:     //sprite is facing up
+            SDL_RenderCopyEx(renderer, sprite->sprite_texture, &sprite->src, &sprite->dest, 0, NULL, 1);
+            break;
 
+        case 1:     //sprite is facing down
+            SDL_RenderCopyEx(renderer, sprite->sprite_texture, &sprite->src, &sprite->dest, 180, NULL, 1);
+            break;
+
+        case 2:     //sprite is facing right
+            SDL_RenderCopyEx(renderer, sprite->sprite_texture, &sprite->src, &sprite->dest, 90, NULL, 1);
+            break;
+
+        case 3:     //sprite is facing left
+            SDL_RenderCopyEx(renderer, sprite->sprite_texture, &sprite->src, &sprite->dest, 270, NULL, 1);
+            break;
+
+    }
+
+}
 
 
 

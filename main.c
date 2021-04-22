@@ -3,13 +3,13 @@
 #include <SDL2/SDL_timer.h>
 #include "sprite/sprite.h"
 #include "map/map.h"
-#include "sprite/bullet/bullet.h"
+#include "bullet/bullet.h"
 #include <SDL2/SDL_image.h>
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 
 #define MAX_BULLETS 1000
-SDL_Texture *bulletTexture;
+
 struct Bullet *bullets[MAX_BULLETS] = { NULL };
 
 int main(void){
@@ -46,7 +46,10 @@ int main(void){
         SDL_Quit();
         return 1;
     }
-    SDL_Surface *bullet = IMG_Load("/home/talgat/Downloads/Project.2/S21-Networks-Optional-Project/resources/bullet.png");
+
+    SDL_Texture *bulletTexture;
+
+    SDL_Surface *bullet = IMG_Load("/home/makshe/Downloads/S21-Networks-Optional-Project2/S21-Networks-Optional-Project/resources/bullet.png");
     if(!bullet)
     {
         printf("Cannot find bullet\n");
@@ -54,6 +57,7 @@ int main(void){
     }
 
     bulletTexture = SDL_CreateTextureFromSurface(renderer, bullet);
+
     SDL_FreeSurface(bullet);
 
 
@@ -73,39 +77,24 @@ int main(void){
     while(!close_requested){
         SDL_Event event;
 
-        EventHandler(event, &sprite, &close_requested, shoot,bullets);
 
+        EventHandler(event, &sprite, &close_requested, shoot, bullets);
 
         //clearing the renderer
         SDL_RenderClear(renderer);
 
         //copying map to the renderer
         SDL_RenderCopy(renderer, map.map_texture, NULL, NULL);
+
+        //rendering bullets
         for(int i = 0; i < MAX_BULLETS; i++) if(bullets[i])
         {
             SDL_Rect rect = { (int)bullets[i]->x,(int) bullets[i]->y, 8, 8 };
             SDL_RenderCopy(renderer, bulletTexture, NULL, &rect);
         }
 
-        //rotating sprite according to its direction
-        switch (sprite.direction){
-            case 0:     //sprite is facing up
-                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 0, NULL, 1);
-                break;
-
-            case 1:     //sprite is facing down
-                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 180, NULL, 1);
-                break;
-
-            case 2:     //sprite is facing right
-                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 90, NULL, 1);
-                break;
-
-            case 3:     //sprite is facing left
-                SDL_RenderCopyEx(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest, 270, NULL, 1);
-                break;
-
-        }
+        //rendering sprite
+        RenderSprite(renderer, &sprite);
 
         //SDL_RenderCopy(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest);
         SDL_RenderPresent(renderer);

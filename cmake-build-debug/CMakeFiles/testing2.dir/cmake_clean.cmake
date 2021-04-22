@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/testing2.dir/bullet/bullet.c.o"
   "CMakeFiles/testing2.dir/main.c.o"
   "CMakeFiles/testing2.dir/map/map.c.o"
   "CMakeFiles/testing2.dir/sprite/sprite.c.o"

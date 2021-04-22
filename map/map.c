@@ -7,7 +7,7 @@
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 #define SPEED (300)
-#define MAP ("/home/makshe/CLionProjects/testing2/resources/background.jpg")
+#define MAP ("/home/makshe/Downloads/S21-Networks-Optional-Project2/S21-Networks-Optional-Project/resources/background.jpg")
 
 
 Map map_init(Map map, SDL_Window *window, SDL_Renderer *renderer){
