@@ -1,4 +1,4 @@
-# Install script for directory: /shared/Study/2020-2021/S21/Networks/Optional Project/Source
+# Install script for directory: /home/danis/Desktop/AnnouncementServer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,14 +37,19 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists/cmake_install.cmake")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/cmake_install.cmake")
+  include("/home/danis/Desktop/AnnouncementServer/cmake-build-debug/libs/data_structures/lists/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/danis/Desktop/AnnouncementServer/cmake-build-debug/libs/networking/peer_to_peer/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -55,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/danis/Desktop/AnnouncementServer/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

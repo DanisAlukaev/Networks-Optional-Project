@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.c" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o"
+  "/home/danis/Desktop/AnnouncementServer/libs/networking/client/client.c" "/home/danis/Desktop/AnnouncementServer/cmake-build-debug/libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

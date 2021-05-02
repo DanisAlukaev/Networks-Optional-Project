@@ -1,2 +1,2 @@
-/usr/bin/ar qc libPeerToPeer.a  CMakeFiles/PeerToPeer.dir/peer2peer.c.o
+/usr/bin/ar qc libPeerToPeer.a CMakeFiles/PeerToPeer.dir/peer2peer.c.o
 /usr/bin/ranlib libPeerToPeer.a

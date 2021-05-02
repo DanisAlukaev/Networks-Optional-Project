@@ -1,4 +1,4 @@
-# Install script for directory: /shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer
+# Install script for directory: /home/danis/Desktop/AnnouncementServer/libs/networking/peer_to_peer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,13 +37,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/cmake_install.cmake")
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/cmake_install.cmake")
+  include("/home/danis/Desktop/AnnouncementServer/cmake-build-debug/libs/networking/peer_to_peer/build_client/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/danis/Desktop/AnnouncementServer/cmake-build-debug/libs/networking/peer_to_peer/build_server/cmake_install.cmake")
 endif()
 

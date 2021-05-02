@@ -6,15 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.c
+/home/danis/Desktop/AnnouncementServer/libs/networking/server/server.c
 server.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+/home/danis/Desktop/AnnouncementServer/libs/networking/server/server.h
 stdio.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+string.h
 -
 stdlib.h
 -
+netinet/in.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+errno.h
+-
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+/home/danis/Desktop/AnnouncementServer/libs/networking/server/server.h
 sys/socket.h
 -
 netinet/in.h
