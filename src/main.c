@@ -24,15 +24,6 @@ _Noreturn void *server_function(void *arg) {
         char *client_address = inet_ntoa(p2p->server.address.sin_addr);
         printf("\t\t\t%s says: %s\n", client_address, request);
         close(client);
-        short found = 0;
-        for (int i = 0; i < p2p->known_hosts.length && !found; i++) {
-            if (strcmp(client_address, p2p->known_hosts.retrieve(&p2p->known_hosts, i)) == 0) {
-                found = 1;
-            }
-        }
-        if (!found) {
-            p2p->known_hosts.append(&p2p->known_hosts, client_address, sizeof(client_address));
-        }
     }
 }
 
@@ -43,8 +34,8 @@ _Noreturn void *client_function(void *arg) {
         char request[255];
         memset(request, 0, 255);
         fgets(request, 255, stdin);
-        for (int i = 0; i < p2p->known_hosts.length; i++) {
-            client.request(&client, p2p->known_hosts.retrieve(&p2p->known_hosts, i), request);
+        for (int i = 0; i < PEERS; i++) {
+            client.request(&client, known_hosts[i], request);
         }
     }
 }
@@ -74,7 +65,7 @@ int main() {
     }
     char *hello = "JOINPUL";
     send(socket_cd, hello, strlen(hello), 0);
-    valread = read(socket_cd, buffer, 1024);
+    valread = read(socket_cd, buffer, 255);
     printf("%s\n", buffer);
     close(socket_cd);
 
@@ -117,4 +108,8 @@ int main() {
     }
     for (i = 0; i < PEERS; i++)
         printf("%s\n", known_hosts[i]);
+
+    struct PeerToPeer p2p = peer_to_peer_constructor(AF_INET, SOCK_STREAM, 0, 1248, INADDR_ANY, *known_hosts,
+                                                     server_function, client_function);
+    p2p.user_portal(&p2p);
 }
