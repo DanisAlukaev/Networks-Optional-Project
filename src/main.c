@@ -11,7 +11,6 @@
 
 int main() {
     char server_address[INET_ADDRSTRLEN];
-    struct LinkedList known_hosts = linked_list_constructor();
     struct Server announcement_server = server_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, 1249, PEERS);
     printf("Listening for connections.\n");
     inet_ntop(AF_INET, &announcement_server.address.sin_addr, server_address, INET_ADDRSTRLEN);
@@ -37,11 +36,7 @@ int main() {
         inet_ntop(AF_INET, &ipAddr, client_address, INET_ADDRSTRLEN);
 
         short found = 0;
-        for (int i = 0; i < known_hosts.length && !found; i++) {
-//            if (strcmp(client_address, known_hosts.retrieve(&known_hosts, i)) == 0) {
-//                printf("%s", known_hosts.retrieve(&known_hosts, i));
-//                found = 1;
-//            }
+        for (int i = 0; i < no_known_hosts && !found; i++) {
             if (strcmp(client_address, known_hosts_array[i]) == 0) {
                 printf("%s", known_hosts_array[i]);
                 found = 1;
@@ -50,11 +45,10 @@ int main() {
         if (!found) {
             strncpy(known_hosts_array[no_known_hosts], client_address, 15);
             no_known_hosts++;
-            known_hosts.append(&known_hosts, client_address, sizeof(client_address));
         }
 
         printf("Peer %s connected.\n", client_address);
-        int connections_left = PEERS - known_hosts.length;
+        int connections_left = PEERS - no_known_hosts;
         char response[255];
         if (connections_left != 0) {
             snprintf(response, sizeof response, "Connected successfully. \nWaiting for %d peer(s). \n",
@@ -69,7 +63,6 @@ int main() {
     // serialize known hosts
     char serialized_known_hosts[255] = "";
     for (int i = 0; i < no_known_hosts; i++) {
-//        char *host = known_hosts.retrieve(&known_hosts, i);
         char *host = known_hosts_array[i];
         strcat(serialized_known_hosts, host);
         strcat(serialized_known_hosts, " ");
