@@ -1,2 +1,2 @@
-/usr/bin/ar qc libClient.a  CMakeFiles/Client.dir/client.c.o
+/usr/bin/ar qc libClient.a CMakeFiles/Client.dir/client.c.o
 /usr/bin/ranlib libClient.a

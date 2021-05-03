@@ -40,3 +40,31 @@ make[1]: Leaving directory '/shared/Study/2020-2021/S21/Networks/Optional Projec
 
 
 
+The system is: Linux - 5.8.0-50-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_91b5c/fast && /usr/bin/make  -f CMakeFiles/cmTC_91b5c.dir/build.make CMakeFiles/cmTC_91b5c.dir/build
+make[1]: Entering directory '/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91b5c.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_91b5c.dir/testCCompiler.c.o -c "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_91b5c
+/opt/clion-2021.1.1/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91b5c.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_91b5c.dir/testCCompiler.c.o -o cmTC_91b5c 
+make[1]: Leaving directory '/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+

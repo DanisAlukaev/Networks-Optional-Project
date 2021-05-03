@@ -43,4 +43,8 @@ stdio.h
 -
 arpa/inet.h
 -
+time.h
+-
+string.h
+-
 
