@@ -5,8 +5,6 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <arpa/inet.h>
-#include <time.h>
-#include <string.h>
 
 #define SERVERIP "10.91.49.128"
 #define PEERS 2
@@ -52,10 +50,11 @@ _Noreturn void *client_function(void *arg) {
 }
 
 int main() {
-    int socket_cd = 0, valread;
+    int socket_cd, valread;
     struct sockaddr_in server_address;
-    char buffer[1024] = {0};
+    char buffer[255] = {0};
 
+    // request pool
     if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         printf("\n Socket creation error \n");
         return -1;
@@ -79,8 +78,11 @@ int main() {
     printf("%s\n", buffer);
     close(socket_cd);
 
-    clock_t start_time = clock();
-    while (start_time + 10000 < clock());
+    // wait for other peers
+    int b;
+    scanf("%d", &b);
+
+    // request the list of known hosts
 
     if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         printf("\n Socket creation error \n");
@@ -99,26 +101,20 @@ int main() {
         printf("\nConnection Failed \n");
         return -1;
     }
+
     char *request_known_hosts = "RQSTKNWNHST";
     send(socket_cd, request_known_hosts, strlen(request_known_hosts), 0);
-    valread = read(socket_cd, buffer, 1024);
-    printf("%s\n", buffer);
+    memset(buffer, 0, 255);
+    valread = read(socket_cd, buffer, 255);
     close(socket_cd);
 
-
+    // form list of known hosts
     int i = 0;
     char *p = strtok(buffer, " ");
-
     while (p != NULL) {
         known_hosts[i++] = p;
         p = strtok(NULL, " ");
     }
-
-    for (i = 0; i < PEERS; ++i)
+    for (i = 0; i < PEERS; i++)
         printf("%s\n", known_hosts[i]);
-
-
-    struct PeerToPeer p2p = peer_to_peer_constructor(AF_INET, SOCK_STREAM, 0, 1248, INADDR_ANY, server_function,
-                                                     client_function);
-    p2p.user_portal(&p2p);
 }
