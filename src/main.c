@@ -37,12 +37,11 @@ int main() {
         inet_ntop(AF_INET, &ipAddr, client_address, INET_ADDRSTRLEN);
 
         short found = 0;
-        short found_idx = -1;
+        int found_idx = -1;
         for (int i = 0; i < no_known_hosts && !found; i++) {
             if (strcmp(client_address, known_hosts_array[i]) == 0) {
-                printf("%s", known_hosts_array[i]);
                 found = 1;
-                found_idx = -1;
+                found_idx = i;
             }
         }
         if (!found) {
@@ -71,8 +70,8 @@ int main() {
         send(client, response, strlen(response), 0);
         close(client);
         short all_acknowledged = 1;
-        for (int i = 0; i < PEERS; i++){
-            if(acknowledged_requests[i] == 0) {
+        for (int i = 0; i < PEERS; i++) {
+            if (acknowledged_requests[i] == 0) {
                 all_acknowledged = 0;
             }
         }
