@@ -17,10 +17,11 @@ int main() {
     printf("IP address of the announcement server: %s \n", server_address);
 
     char known_hosts_array[PEERS][15];
+    int acknowledged_requests[PEERS] = {0};
     int no_known_hosts = 0;
 
     // process all requests from peers
-    while (no_known_hosts < PEERS) {
+    while (1) {
         char request[255];
         memset(request, 0, 255);
 
@@ -36,21 +37,29 @@ int main() {
         inet_ntop(AF_INET, &ipAddr, client_address, INET_ADDRSTRLEN);
 
         short found = 0;
+        short found_idx = -1;
         for (int i = 0; i < no_known_hosts && !found; i++) {
             if (strcmp(client_address, known_hosts_array[i]) == 0) {
                 printf("%s", known_hosts_array[i]);
                 found = 1;
+                found_idx = -1;
             }
         }
         if (!found) {
             strncpy(known_hosts_array[no_known_hosts], client_address, 15);
             no_known_hosts++;
+            printf("Peer %s connected.\n", client_address);
         }
-        printf("Peer %s connected.\n", client_address);
         int connections_left = PEERS - no_known_hosts;
         char response[255];
+
         if (found) {
-            snprintf(response, sizeof response, "%d player(s) in waiting room.\n", no_known_hosts);
+            if (no_known_hosts < PEERS) {
+                snprintf(response, sizeof response, "%d player(s) in waiting room.\n", no_known_hosts);
+            } else if (no_known_hosts == PEERS) {
+                acknowledged_requests[found_idx] = 1;
+                snprintf(response, sizeof response, "Done");
+            }
         } else {
             if (connections_left != 0) {
                 snprintf(response, sizeof response, "Connected successfully. \nWaiting for %d peer(s). \n",
@@ -61,6 +70,14 @@ int main() {
         }
         send(client, response, strlen(response), 0);
         close(client);
+        short all_acknowledged = 1;
+        for (int i = 0; i < PEERS; i++){
+            if(acknowledged_requests[i] == 0) {
+                all_acknowledged = 0;
+            }
+        }
+        if (all_acknowledged == 1)
+            break;
     }
 
     // serialize known hosts
