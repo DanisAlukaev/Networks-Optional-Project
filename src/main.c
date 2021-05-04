@@ -5,10 +5,40 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <arpa/inet.h>
+#include<errno.h>
 
 #define SERVERIP "10.91.49.128"
 #define PEERS 2
 char *known_hosts[PEERS];
+
+char local_ip_address[100];
+
+void get_local_ip_address(char *buffer, int count) {
+    const char *google_dns_server = "8.8.8.8";
+    int dns_port = 53;
+
+    struct sockaddr_in serv;
+    int sock = socket(AF_INET, SOCK_DGRAM, 0);
+    if (sock < 0) {
+        perror("Socket error");
+    }
+    memset(&serv, 0, sizeof(serv));
+    serv.sin_family = AF_INET;
+    serv.sin_addr.s_addr = inet_addr(google_dns_server);
+    serv.sin_port = htons(dns_port);
+
+    connect(sock, (const struct sockaddr *) &serv, sizeof(serv));
+
+    struct sockaddr_in name;
+    socklen_t namelen = sizeof(name);
+    getsockname(sock, (struct sockaddr *) &name, &namelen);
+
+    const char *p = inet_ntop(AF_INET, &name.sin_addr, buffer, 100);
+    if (p == NULL) {
+        printf("Error %d occurred: %s \n", errno, strerror(errno));
+    }
+    close(sock);
+}
 
 
 _Noreturn void *server_function(void *arg) {
@@ -35,15 +65,19 @@ _Noreturn void *client_function(void *arg) {
         memset(request, 0, 255);
         fgets(request, 255, stdin);
         for (int i = 0; i < PEERS; i++) {
-            client.request(&client, known_hosts[i], request);
+            if (strcmp(local_ip_address, known_hosts[i]) != 0) {
+                client.request(&client, known_hosts[i], request);
+            }
         }
     }
 }
 
 int main() {
-    int socket_cd, valread;
+    int socket_cd;
     struct sockaddr_in server_address;
     char buffer[255] = {0};
+    get_local_ip_address(local_ip_address, 100);
+    printf("Current IP address: %s. \n", local_ip_address);
 
     // request pool
     if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -65,7 +99,7 @@ int main() {
     }
     char *hello = "JOINPUL";
     send(socket_cd, hello, strlen(hello), 0);
-    valread = read(socket_cd, buffer, 255);
+    read(socket_cd, buffer, 255);
     printf("%s\n", buffer);
     close(socket_cd);
 
@@ -96,7 +130,7 @@ int main() {
     char *request_known_hosts = "RQSTKNWNHST";
     send(socket_cd, request_known_hosts, strlen(request_known_hosts), 0);
     memset(buffer, 0, 255);
-    valread = read(socket_cd, buffer, 255);
+    read(socket_cd, buffer, 255);
     close(socket_cd);
 
     // form list of known hosts
