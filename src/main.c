@@ -59,11 +59,12 @@ _Noreturn void *server_function(void *arg) {
 
 _Noreturn void *client_function(void *arg) {
     struct PeerToPeer *p2p = arg;
+    fflush(stdin);
     while (1) {
         struct Client client = client_constructor(p2p->domain, p2p->service, p2p->protocol, p2p->port, p2p->interface);
         char request[255];
         memset(request, 0, 255);
-        fgets(request, 255, stdin);
+        scanf("%s", request);
         for (int i = 0; i < PEERS; i++) {
             if (strcmp(local_ip_address, known_hosts[i]) != 0) {
                 client.request(&client, known_hosts[i], request);
@@ -104,9 +105,9 @@ int main() {
     close(socket_cd);
 
     // wait for other peers
-    int b;
-    scanf("%d", &b);
-
+    char b[15];
+    fgets(b, 15, stdin);
+    fflush(stdin);
     // request the list of known hosts
 
     if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
