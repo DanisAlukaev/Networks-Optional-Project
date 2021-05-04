@@ -59,12 +59,11 @@ _Noreturn void *server_function(void *arg) {
 
 _Noreturn void *client_function(void *arg) {
     struct PeerToPeer *p2p = arg;
-    fflush(stdin);
     while (1) {
         struct Client client = client_constructor(p2p->domain, p2p->service, p2p->protocol, p2p->port, p2p->interface);
         char request[255];
         memset(request, 0, 255);
-        scanf("%s", request);
+        fgets(request, 255, stdin);
         for (int i = 0; i < PEERS; i++) {
             if (strcmp(local_ip_address, known_hosts[i]) != 0) {
                 client.request(&client, known_hosts[i], request);
@@ -105,9 +104,43 @@ int main() {
     close(socket_cd);
 
     // wait for other peers
-    char b[15];
-    fgets(b, 15, stdin);
-    fflush(stdin);
+    while (1) {
+        sleep(1);
+        int socket_cd;
+        struct sockaddr_in server_address;
+        char buffer[255] = {0};
+        get_local_ip_address(local_ip_address, 100);
+        printf("Current IP address: %s. \n", local_ip_address);
+
+        // request pool
+        if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+            printf("\n Socket creation error \n");
+            continue;
+        }
+
+        server_address.sin_family = AF_INET;
+        server_address.sin_port = htons(1249);
+
+        if (inet_pton(AF_INET, SERVERIP, &server_address.sin_addr) <= 0) {
+            printf("\nInvalid address/ Address not supported \n");
+            continue;
+        }
+
+        if (connect(socket_cd, (struct sockaddr *) &server_address, sizeof(server_address)) < 0) {
+            printf("\nConnection Failed \n");
+            continue;
+        }
+        char *request = "GETNUMPLAYERS";
+        send(socket_cd, request, strlen(request), 0);
+        read(socket_cd, buffer, 255);
+        printf("%s\n", buffer);
+        close(socket_cd);
+        if(strcmp(buffer, "Done") == 0)
+            break;
+    }
+    printf("Synchronization...");
+    sleep(8);
+    printf("Request for known hosts...");
     // request the list of known hosts
 
     if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
