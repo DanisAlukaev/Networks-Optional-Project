@@ -46,15 +46,18 @@ int main() {
             strncpy(known_hosts_array[no_known_hosts], client_address, 15);
             no_known_hosts++;
         }
-
         printf("Peer %s connected.\n", client_address);
         int connections_left = PEERS - no_known_hosts;
         char response[255];
-        if (connections_left != 0) {
-            snprintf(response, sizeof response, "Connected successfully. \nWaiting for %d peer(s). \n",
-                     connections_left);
+        if (found) {
+            snprintf(response, sizeof response, "%d player(s) in waiting room.\n", no_known_hosts);
         } else {
-            snprintf(response, sizeof response, "Connected successfully. \nAll players were connected.\n");
+            if (connections_left != 0) {
+                snprintf(response, sizeof response, "Connected successfully. \nWaiting for %d peer(s). \n",
+                         connections_left);
+            } else {
+                snprintf(response, sizeof response, "Connected successfully. \nAll players were connected.\n");
+            }
         }
         send(client, response, strlen(response), 0);
         close(client);
