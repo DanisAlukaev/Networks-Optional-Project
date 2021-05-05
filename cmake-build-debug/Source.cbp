@@ -37,6 +37,44 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="testing2">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/testing2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 testing2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="testing2/fast">
+				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/testing2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 testing2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/shared/Study/2020-2021/S21/Networks/Optional\ Project/Source/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="Source">
 				<Option output="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/Source" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"/>
@@ -266,6 +304,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/bullet/bullet.c">
+			<Option target="testing2"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/bullet/bullet.h">
+			<Option target="testing2"/>
+		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.c">
 			<Option target="LinkedLists"/>
 		</Unit>
@@ -277,6 +321,12 @@
 		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h">
 			<Option target="Nodes"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/map/map.c">
+			<Option target="testing2"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/map/map.h">
+			<Option target="testing2"/>
 		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.c">
 			<Option target="Client"/>
@@ -296,7 +346,20 @@
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h">
 			<Option target="Server"/>
 		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/sprite/sprite.c">
+			<Option target="testing2"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/sprite/sprite.h">
+			<Option target="testing2"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/wall/wall.c">
+			<Option target="testing2"/>
+		</Unit>
+		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/wall/wall.h">
+			<Option target="testing2"/>
+		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/src/main.c">
+			<Option target="testing2"/>
 			<Option target="Source"/>
 		</Unit>
 		<Unit filename="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/CMakeLists.txt">

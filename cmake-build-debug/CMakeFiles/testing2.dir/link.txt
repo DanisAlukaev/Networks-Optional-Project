@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/testing2.dir/src/main.c.o CMakeFiles/testing2.dir/libs/sprite/sprite.c.o CMakeFiles/testing2.dir/libs/map/map.c.o CMakeFiles/testing2.dir/libs/bullet/bullet.c.o CMakeFiles/testing2.dir/libs/wall/wall.c.o -o testing2 

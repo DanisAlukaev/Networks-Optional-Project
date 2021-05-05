@@ -72,6 +72,7 @@ CMAKE_BINARY_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/testing2.dir/all
 all: CMakeFiles/Source.dir/all
 all: libs/data_structures/lists/all
 all: libs/networking/peer_to_peer/all
@@ -85,6 +86,7 @@ preinstall: libs/networking/peer_to_peer/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/testing2.dir/clean
 clean: CMakeFiles/Source.dir/clean
 clean: libs/data_structures/lists/clean
 clean: libs/networking/peer_to_peer/clean
@@ -187,6 +189,33 @@ libs/networking/peer_to_peer/build_server/preinstall:
 libs/networking/peer_to_peer/build_server/clean: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/clean
 
 .PHONY : libs/networking/peer_to_peer/build_server/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/testing2.dir
+
+# All Build rule for target.
+CMakeFiles/testing2.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" --progress-num=13,14,15,16,17,18 "Built target testing2"
+.PHONY : CMakeFiles/testing2.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testing2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testing2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" 0
+.PHONY : CMakeFiles/testing2.dir/rule
+
+# Convenience name for target.
+testing2: CMakeFiles/testing2.dir/rule
+
+.PHONY : testing2
+
+# clean rule for target.
+CMakeFiles/testing2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/clean
+.PHONY : CMakeFiles/testing2.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Source.dir
