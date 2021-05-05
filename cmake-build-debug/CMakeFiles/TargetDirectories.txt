@@ -1,0 +1,3 @@
+/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/testing2.dir

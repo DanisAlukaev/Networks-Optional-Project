@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/bullet/bullet.c
+stdio.h
+-
+SDL2/SDL.h
+-
+SDL2/SDL_timer.h
+-
+bullet.h
+/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/bullet/bullet.h
+
+/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/bullet/bullet.h
+
