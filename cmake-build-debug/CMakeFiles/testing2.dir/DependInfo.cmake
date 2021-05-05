@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/bullet/bullet.c" "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/testing2.dir/bullet/bullet.c.o"
-  "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/main.c" "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/testing2.dir/main.c.o"
-  "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/map/map.c" "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/testing2.dir/map/map.c.o"
-  "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/sprite/sprite.c" "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/testing2.dir/sprite/sprite.c.o"
-  "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/wall/wall.c" "/home/talgat/Downloads/Networks3 (copy)/S21-Networks-Optional-Project-visualization/cmake-build-debug/CMakeFiles/testing2.dir/wall/wall.c.o"
+  "/home/makshe/PullFolder/S21-Networks-Optional-Project/libs/bullet/bullet.c" "/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir/libs/bullet/bullet.c.o"
+  "/home/makshe/PullFolder/S21-Networks-Optional-Project/libs/map/map.c" "/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir/libs/map/map.c.o"
+  "/home/makshe/PullFolder/S21-Networks-Optional-Project/libs/sprite/sprite.c" "/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir/libs/sprite/sprite.c.o"
+  "/home/makshe/PullFolder/S21-Networks-Optional-Project/libs/wall/wall.c" "/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir/libs/wall/wall.c.o"
+  "/home/makshe/PullFolder/S21-Networks-Optional-Project/src/main.c" "/home/makshe/PullFolder/S21-Networks-Optional-Project/cmake-build-debug/CMakeFiles/testing2.dir/src/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

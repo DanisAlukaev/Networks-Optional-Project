@@ -49,6 +49,7 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
     sprite.up = sprite.down = sprite.right = sprite.left = 0;
     sprite.direction = 0;
 
+    sprite.message = (char*) malloc(20* sizeof(char));
 
     return sprite;
 }
@@ -96,9 +97,7 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
                         sprite->direction = 3;
                         break;
                     case SDL_SCANCODE_SPACE:
-                        printf("%d",0);
                         if(sprite->alive) {
-                            printf("%d",1);
                             if (sprite->direction == 0 && !sprite->bullet.isShot) {
                                 sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos, 0, -3);
                             }
@@ -143,7 +142,6 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
         }
     }
 
-//1
     //determine the velocity
     int x_vel, y_vel;
     x_vel = y_vel = 0;
@@ -155,6 +153,8 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
     //update positions:
     sprite->x_pos += (float)x_vel/45;
     sprite->y_pos += (float)y_vel/45;
+
+    SendPos(sprite);
 
     //collision detection:
     if(sprite->x_pos <= 0) sprite->x_pos = 0;
@@ -193,7 +193,6 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
             }
         }
     }
-    //simple coll. detection
 
 }
 
@@ -222,5 +221,45 @@ void RenderSprite(SDL_Renderer *renderer, Sprite *sprite){
 }
 
 
+void SendPos(Sprite *sprite){
+    int x, y, dir;
+    x = sprite->dest.x;
+    y = sprite->dest.y;
+    dir = sprite->direction;
+    sprintf(sprite->message, "%d %d %d \n", x, y, dir);
+}
 
+
+void RecvPos(char *message, Sprite *sprite){
+
+    //char *message = "1324 1234 5"
+    //char message[10]
+
+    int nums[3];
+    int len = strlen(message);
+    char mes [len];
+
+    for(int i = 0; i < len; i++){
+        mes[i] = message[i];
+    }
+
+    char seps[] = " ";
+    char* token;
+    int var;
+    int i = 0;
+
+    token = strtok (mes, seps);
+    while (token != NULL)
+    {
+        sscanf(token, "%d", &var);
+        nums[i++] = var;
+
+        token = strtok (NULL, seps);
+    }
+
+    sprite->dest.x = nums[0];
+    sprite->dest.y = nums[1];
+    sprite->direction = nums[2];
+
+}
 

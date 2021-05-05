@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/testing2.dir/main.c.o CMakeFiles/testing2.dir/sprite/sprite.c.o CMakeFiles/testing2.dir/map/map.c.o CMakeFiles/testing2.dir/bullet/bullet.c.o CMakeFiles/testing2.dir/wall/wall.c.o -o testing2  -lSDL2_image-2.0 -lSDL2main -lSDL2 
+/usr/bin/cc -g CMakeFiles/testing2.dir/src/main.c.o CMakeFiles/testing2.dir/libs/sprite/sprite.c.o CMakeFiles/testing2.dir/libs/map/map.c.o CMakeFiles/testing2.dir/libs/bullet/bullet.c.o CMakeFiles/testing2.dir/libs/wall/wall.c.o -o testing2  -lSDL2_image-2.0 -lSDL2main -lSDL2 

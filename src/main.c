@@ -1,22 +1,17 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
-#include "sprite/sprite.h"
-#include "map/map.h"
-#include "bullet/bullet.h"
+#include "../libs/sprite/sprite.h"
+#include "../libs/map/map.h"
+#include "../libs/bullet/bullet.h"
 #include <SDL2/SDL_image.h>
-#include <time.h>
-#include "wall/wall.h"
-#define SPRITESHEET ("/home/talgat/Downloads/Networks3/S21-Networks-Optional-Project-visualization/resources/playersprite.png")
-#define SPRITESHEET2 ("/home/talgat/Downloads/Networks3/S21-Networks-Optional-Project-visualization/resources/enemysprite.png")
+#include "../libs/wall/wall.h"
 
+#define SPRITESHEET ("libs/resources/playersprite.png")
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 
-#define MAX_BULLETS 1000
 
-
-Wall *walls[6]={NULL};
 int main(void){
 
     int window_width, window_height;
@@ -54,14 +49,14 @@ int main(void){
 
     SDL_Texture *bulletTexture, *wallTexture;
 
-    SDL_Surface *bullet = IMG_Load("/home/talgat/Downloads/Networks3/S21-Networks-Optional-Project-visualization/resources/bullet.png");
+    SDL_Surface *bullet = IMG_Load("libs/resources/bullet.png");
 
     if(!bullet)
     {
         printf("Cannot find bullet\n");
         return 1;
     }
-    SDL_Surface *wall_s = IMG_Load("/home/talgat/Downloads/Networks3/S21-Networks-Optional-Project-visualization/resources/Wall4.jpg");
+    SDL_Surface *wall_s = IMG_Load("libs/resources/Wall4.jpg");
     if(!wall_s)
     {
         printf("Cannot find wall\n");
@@ -81,7 +76,7 @@ int main(void){
     sprite.dest.y = (WINDOW_HEIGHT - sprite.dest.h)/2;
     sprite = sprite_init(sprite, window, renderer);
 
-
+    Wall *walls[6]={NULL};
     Wall wall1;
     wall1.x=0;
     wall1.y=100;
@@ -144,7 +139,6 @@ int main(void){
         //rendering bullets
 
         if(sprite.bullet.isShot) {
-            printf("%d",34);
             SDL_Rect rect = {(int) sprite.bullet.x, (int) sprite.bullet.y, 12, 12};
             SDL_RenderCopy(renderer, bulletTexture, NULL, &rect);
         }

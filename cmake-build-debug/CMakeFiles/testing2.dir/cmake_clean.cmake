@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/testing2.dir/bullet/bullet.c.o"
-  "CMakeFiles/testing2.dir/main.c.o"
-  "CMakeFiles/testing2.dir/map/map.c.o"
-  "CMakeFiles/testing2.dir/sprite/sprite.c.o"
-  "CMakeFiles/testing2.dir/wall/wall.c.o"
+  "CMakeFiles/testing2.dir/libs/bullet/bullet.c.o"
+  "CMakeFiles/testing2.dir/libs/map/map.c.o"
+  "CMakeFiles/testing2.dir/libs/sprite/sprite.c.o"
+  "CMakeFiles/testing2.dir/libs/wall/wall.c.o"
+  "CMakeFiles/testing2.dir/src/main.c.o"
   "testing2"
   "testing2.pdb"
 )

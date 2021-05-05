@@ -7,7 +7,7 @@
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 #define SPEED (300)
-#define MAP ("/home/talgat/Downloads/Networks3/S21-Networks-Optional-Project-visualization/resources/background.jpg")
+#define MAP ("libs/resources/background.jpg")
 
 
 Map map_init(Map map, SDL_Window *window, SDL_Renderer *renderer){
