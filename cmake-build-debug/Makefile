@@ -67,10 +67,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source"
+CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles /home/danis/Desktop/Source2/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,30 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named testing2
+# Target rules for targets named Source2
 
 # Build rule for target.
-testing2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testing2
-.PHONY : testing2
+Source2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Source2
+.PHONY : Source2
 
 # fast build rule for target.
-testing2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/build
-.PHONY : testing2/fast
-
-#=============================================================================
-# Target rules for targets named Source
-
-# Build rule for target.
-Source: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Source
-.PHONY : Source
-
-# fast build rule for target.
-Source/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/build
-.PHONY : Source/fast
+Source2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/build
+.PHONY : Source2/fast
 
 #=============================================================================
 # Target rules for targets named LinkedLists
@@ -226,7 +213,7 @@ libs/bullet/bullet.o: libs/bullet/bullet.c.o
 
 # target to build an object file
 libs/bullet/bullet.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/bullet/bullet.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/bullet/bullet.c.o
 .PHONY : libs/bullet/bullet.c.o
 
 libs/bullet/bullet.i: libs/bullet/bullet.c.i
@@ -235,7 +222,7 @@ libs/bullet/bullet.i: libs/bullet/bullet.c.i
 
 # target to preprocess a source file
 libs/bullet/bullet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/bullet/bullet.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/bullet/bullet.c.i
 .PHONY : libs/bullet/bullet.c.i
 
 libs/bullet/bullet.s: libs/bullet/bullet.c.s
@@ -244,7 +231,7 @@ libs/bullet/bullet.s: libs/bullet/bullet.c.s
 
 # target to generate assembly for a file
 libs/bullet/bullet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/bullet/bullet.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/bullet/bullet.c.s
 .PHONY : libs/bullet/bullet.c.s
 
 libs/map/map.o: libs/map/map.c.o
@@ -253,7 +240,7 @@ libs/map/map.o: libs/map/map.c.o
 
 # target to build an object file
 libs/map/map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/map/map.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/map/map.c.o
 .PHONY : libs/map/map.c.o
 
 libs/map/map.i: libs/map/map.c.i
@@ -262,7 +249,7 @@ libs/map/map.i: libs/map/map.c.i
 
 # target to preprocess a source file
 libs/map/map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/map/map.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/map/map.c.i
 .PHONY : libs/map/map.c.i
 
 libs/map/map.s: libs/map/map.c.s
@@ -271,7 +258,7 @@ libs/map/map.s: libs/map/map.c.s
 
 # target to generate assembly for a file
 libs/map/map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/map/map.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/map/map.c.s
 .PHONY : libs/map/map.c.s
 
 libs/sprite/sprite.o: libs/sprite/sprite.c.o
@@ -280,7 +267,7 @@ libs/sprite/sprite.o: libs/sprite/sprite.c.o
 
 # target to build an object file
 libs/sprite/sprite.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/sprite/sprite.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/sprite/sprite.c.o
 .PHONY : libs/sprite/sprite.c.o
 
 libs/sprite/sprite.i: libs/sprite/sprite.c.i
@@ -289,7 +276,7 @@ libs/sprite/sprite.i: libs/sprite/sprite.c.i
 
 # target to preprocess a source file
 libs/sprite/sprite.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/sprite/sprite.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/sprite/sprite.c.i
 .PHONY : libs/sprite/sprite.c.i
 
 libs/sprite/sprite.s: libs/sprite/sprite.c.s
@@ -298,7 +285,7 @@ libs/sprite/sprite.s: libs/sprite/sprite.c.s
 
 # target to generate assembly for a file
 libs/sprite/sprite.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/sprite/sprite.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/sprite/sprite.c.s
 .PHONY : libs/sprite/sprite.c.s
 
 libs/wall/wall.o: libs/wall/wall.c.o
@@ -307,7 +294,7 @@ libs/wall/wall.o: libs/wall/wall.c.o
 
 # target to build an object file
 libs/wall/wall.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/wall/wall.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/wall/wall.c.o
 .PHONY : libs/wall/wall.c.o
 
 libs/wall/wall.i: libs/wall/wall.c.i
@@ -316,7 +303,7 @@ libs/wall/wall.i: libs/wall/wall.c.i
 
 # target to preprocess a source file
 libs/wall/wall.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/wall/wall.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/wall/wall.c.i
 .PHONY : libs/wall/wall.c.i
 
 libs/wall/wall.s: libs/wall/wall.c.s
@@ -325,7 +312,7 @@ libs/wall/wall.s: libs/wall/wall.c.s
 
 # target to generate assembly for a file
 libs/wall/wall.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/libs/wall/wall.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/libs/wall/wall.c.s
 .PHONY : libs/wall/wall.c.s
 
 src/main.o: src/main.c.o
@@ -334,8 +321,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/src/main.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -344,8 +330,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/src/main.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -354,8 +339,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testing2.dir/build.make CMakeFiles/testing2.dir/src/main.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 # Help Target
@@ -371,8 +355,7 @@ help:
 	@echo "... Nodes"
 	@echo "... PeerToPeer"
 	@echo "... Server"
-	@echo "... Source"
-	@echo "... testing2"
+	@echo "... Source2"
 	@echo "... libs/bullet/bullet.o"
 	@echo "... libs/bullet/bullet.i"
 	@echo "... libs/bullet/bullet.s"

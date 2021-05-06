@@ -62,10 +62,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source"
+CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include libs/data_structures/lists/CMakeFiles/LinkedLists.dir/depend.make
@@ -78,16 +78,16 @@ include libs/data_structures/lists/CMakeFiles/LinkedLists.dir/flags.make
 
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/flags.make
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o: ../libs/data_structures/lists/linked_list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LinkedLists.dir/linked_list.c.o -c "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o"
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LinkedLists.dir/linked_list.c.o -c /home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.c
 
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LinkedLists.dir/linked_list.c.i"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.c" > CMakeFiles/LinkedLists.dir/linked_list.c.i
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.c > CMakeFiles/LinkedLists.dir/linked_list.c.i
 
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LinkedLists.dir/linked_list.c.s"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.c" -o CMakeFiles/LinkedLists.dir/linked_list.c.s
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.c -o CMakeFiles/LinkedLists.dir/linked_list.c.s
 
 # Object files for target LinkedLists
 LinkedLists_OBJECTS = \
@@ -99,9 +99,9 @@ LinkedLists_EXTERNAL_OBJECTS =
 libs/data_structures/lists/libLinkedLists.a: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o
 libs/data_structures/lists/libLinkedLists.a: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make
 libs/data_structures/lists/libLinkedLists.a: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libLinkedLists.a"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" && $(CMAKE_COMMAND) -P CMakeFiles/LinkedLists.dir/cmake_clean_target.cmake
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LinkedLists.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libLinkedLists.a"
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists && $(CMAKE_COMMAND) -P CMakeFiles/LinkedLists.dir/cmake_clean_target.cmake
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LinkedLists.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build: libs/data_structures/lists/libLinkedLists.a
@@ -109,10 +109,10 @@ libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build: libs/data_structure
 .PHONY : libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build
 
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/clean:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" && $(CMAKE_COMMAND) -P CMakeFiles/LinkedLists.dir/cmake_clean.cmake
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists && $(CMAKE_COMMAND) -P CMakeFiles/LinkedLists.dir/cmake_clean.cmake
 .PHONY : libs/data_structures/lists/CMakeFiles/LinkedLists.dir/clean
 
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/depend:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists/CMakeFiles/LinkedLists.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danis/Desktop/Source2 /home/danis/Desktop/Source2/libs/data_structures/lists /home/danis/Desktop/Source2/cmake-build-debug /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists/CMakeFiles/LinkedLists.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libs/data_structures/lists/CMakeFiles/LinkedLists.dir/depend
 

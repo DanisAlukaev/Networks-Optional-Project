@@ -67,10 +67,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source"
+CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer//CMakeFiles/progress.marks"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" 0
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer//CMakeFiles/progress.marks
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/clean
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/preinstall
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/preinstall
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule
 .PHONY : libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ PeerToPeer: libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule
 
 # fast build rule for target.
 PeerToPeer/fast:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build
 .PHONY : PeerToPeer/fast
 
 peer2peer.o: peer2peer.c.o
@@ -150,7 +150,7 @@ peer2peer.o: peer2peer.c.o
 
 # target to build an object file
 peer2peer.c.o:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/peer2peer.c.o
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/peer2peer.c.o
 .PHONY : peer2peer.c.o
 
 peer2peer.i: peer2peer.c.i
@@ -159,7 +159,7 @@ peer2peer.i: peer2peer.c.i
 
 # target to preprocess a source file
 peer2peer.c.i:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/peer2peer.c.i
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/peer2peer.c.i
 .PHONY : peer2peer.c.i
 
 peer2peer.s: peer2peer.c.s
@@ -168,7 +168,7 @@ peer2peer.s: peer2peer.c.s
 
 # target to generate assembly for a file
 peer2peer.c.s:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/peer2peer.c.s
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/peer2peer.c.s
 .PHONY : peer2peer.c.s
 
 # Help Target
@@ -194,6 +194,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

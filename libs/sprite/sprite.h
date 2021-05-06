@@ -1,5 +1,7 @@
 #ifndef TESTING2_SPRITE_H
 #define TESTING2_SPRITE_H
+
+#include <SDL2/SDL.h>
 #include "../map/map.h"
 #include "../bullet/bullet.h"
 #include "../wall/wall.h"
@@ -18,7 +20,7 @@ typedef struct Sprite{
 
 Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer);
 
-void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *walls[]);
+void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall walls[]);
 
 void RenderSprite(SDL_Renderer *renderer, Sprite *sprite);
 

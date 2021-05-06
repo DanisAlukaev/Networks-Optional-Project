@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.c
+/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.c
 stdlib.h
 -
 stdio.h
 -
 linked_list.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
 nodes/node.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
 

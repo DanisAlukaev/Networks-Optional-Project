@@ -1,6 +1,7 @@
 #include "../libs/networking/peer_to_peer/peer2peer.h"
 #include "../libs/networking/client/client.h"
 #include "../libs/sprite/sprite.h"
+#include <signal.h>
 
 #include <string.h>
 #include <unistd.h>
@@ -13,14 +14,14 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 
-#define SERVERIP "10.91.49.128"
+#define SERVERIP "10.91.54.190"
 #define PEERS 2
 #define SPRITESHEET ("libs/resources/playersprite.png")
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 
 char *known_hosts[PEERS];
-Sprite *tanks[PEERS];
+Sprite tanks[PEERS];
 short got_the_packet[PEERS] = {0};
 SDL_Window *window;
 
@@ -122,6 +123,7 @@ int init_variables_visualization() {
 
     // initialize map
     map = map_init(map, window, renderer);
+    render_map(renderer, &map);
 }
 
 void join_waiting_room() {
@@ -190,9 +192,9 @@ void join_waiting_room() {
         if (strcmp(buffer, "Done") == 0)
             break;
     }
-    printf("Synchronization...");
+    printf("Synchronization... \n");
     sleep(8);
-    printf("Request for known hosts...");
+    printf("Request for known hosts... \n");
     // request the list of known hosts
 
     if ((socket_cd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -223,53 +225,61 @@ void join_waiting_room() {
     int i = 0;
     char *p = strtok(buffer, " ");
     while (p != NULL) {
-        known_hosts[i++] = p;
+        known_hosts[i] = p;
+        char *tempo = (char *) malloc(20 * sizeof(char));
+        strcpy(tempo, p);
+        known_hosts[i] = tempo;
+        i++;
         p = strtok(NULL, " ");
     }
+
 
     for (int i = 0; i < PEERS; i++)
         if (strcmp(local_ip_address, known_hosts[i]) == 0)
             my_id = i;
 }
 
-void init_my_sprite() {
+void init_sprite(int id) {
     // initialized my coordinates
     Sprite sprite;
+
     sprite.sprite_texture = IMG_LoadTexture(renderer, SPRITESHEET);
-    sprite.dest.x = spawn_points[my_id].x;
-    sprite.dest.y = spawn_points[my_id].y;
+    sprite.dest.x = spawn_points[id].x;
+    sprite.dest.y = spawn_points[id].y;
     sprite = sprite_init(sprite, window, renderer);
-    tanks[my_id] = &sprite;
+
+    tanks[id] = sprite;
 }
 
 _Noreturn void *server_function(void *arg) {
     printf("Server running.\n");
-    init_my_sprite();
+
     struct PeerToPeer *p2p = (struct PeerToPeer *) arg;
-    struct sockaddr *address = (struct sockaddr *) &p2p->server.address;
-    socklen_t address_length = (socklen_t) sizeof(p2p->server.address);
+    struct sockaddr_in address;
+    int address_length = sizeof(address);
 
     while (1) {
-        int client = accept(p2p->server.socket, address, &address_length);
+        int client = accept(p2p->server.socket, (struct sockaddr *) &address, &address_length);
         char request[255];
         memset(request, 0, 255);
         read(client, request, 255);
-        char *client_address = inet_ntoa(p2p->server.address.sin_addr);
-        printf("\t\t\t%s says: %s\n", client_address, request);
+        // TODO: move to another
+        struct sockaddr_in *pV4Addr = (struct sockaddr_in *) &address;
+        struct in_addr ipAddr = pV4Addr->sin_addr;
+        char client_address[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &ipAddr, client_address, INET_ADDRSTRLEN);
+//        printf("\t\t\t%s says: %s\n", client_address, request);
 
         int peer_idx = -1;
         for (int i = 0; i < PEERS; i++) {
-            if (strcmp(client_address, known_hosts[i]) != 0) {
+
+            if (strcmp(client_address, known_hosts[i]) == 0) {
                 peer_idx = i;
                 break;
             }
         }
-        if (got_the_packet[peer_idx] == 0) {
-            got_the_packet[peer_idx] = 1;
-            Sprite new_enemy;
-            tanks[peer_idx] = &new_enemy;
-        }
-        RecvPos(request, tanks[peer_idx]);
+        usleep(50 * 1000);
+        RecvPos(request, &tanks[peer_idx]);
         close(client);
     }
 }
@@ -277,24 +287,26 @@ _Noreturn void *server_function(void *arg) {
 _Noreturn void *client_function(void *arg) {
     struct PeerToPeer *p2p = arg;
 
-    SDL_RenderClear(renderer);
+    for (int i = 0; i < PEERS; i++) {
+        init_sprite(i);
+    }
+
     int close_requested = 0;
 
     while (!close_requested) {
         SDL_Event event;
-        EventHandler(event, tanks[my_id], &close_requested, map.walls);
-        //SDL_RenderCopy(renderer, sprite.sprite_texture, &sprite.src, &sprite.dest);
-        SDL_RenderPresent(renderer);
 
-        SDL_Delay(0);
+        EventHandler(event, &tanks[my_id], &close_requested, map.walls);
+
+//        SDL_RenderClear(renderer);
 
         // while update
         struct Client client = client_constructor(p2p->domain, p2p->service, p2p->protocol, p2p->port, p2p->interface);
         char *request = (char *) malloc(20 * sizeof(char));
 
-        SendPos(tanks[my_id]);
+        SendPos(&tanks[my_id]);
 
-        request = tanks[my_id]->message;
+        request = tanks[my_id].message;
 
         for (int i = 0; i < PEERS; i++) {
             if (strcmp(local_ip_address, known_hosts[i]) != 0) {
@@ -302,13 +314,22 @@ _Noreturn void *client_function(void *arg) {
             }
         }
 
+        render_map(renderer, &map);
+
+        for (int i = 0; i < PEERS; i++) {
+            RenderSprite(renderer, &tanks[i]);
+        }
+
+
+        SDL_RenderPresent(renderer);
+        SDL_Delay(10);
     }
 
     // clean up resources before exiting
     SDL_DestroyRenderer(renderer);
     SDL_DestroyTexture(map.map_texture);
     for (int i = 0; i < PEERS; i++) {
-        SDL_DestroyTexture(tanks[i]->sprite_texture);
+        SDL_DestroyTexture(tanks[i].sprite_texture);
     }
 
     SDL_DestroyWindow(window);
@@ -317,6 +338,7 @@ _Noreturn void *client_function(void *arg) {
 
 
 int main() {
+    sigaction(SIGPIPE, &(struct sigaction) {SIG_IGN}, NULL);
     join_waiting_room();
     init_variables_visualization();
     struct PeerToPeer p2p = peer_to_peer_constructor(AF_INET, SOCK_STREAM, 0, 1248, INADDR_ANY, *known_hosts,

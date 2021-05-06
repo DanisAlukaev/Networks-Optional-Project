@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.c" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/node.c.o"
+  "/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.c" "/home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/node.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

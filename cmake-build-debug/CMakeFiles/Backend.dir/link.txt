@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/Backend.dir/src/main.c.o  -o Backend  libs/data_structures/lists/libLinkedLists.a libs/data_structures/lists/nodes/libNodes.a 

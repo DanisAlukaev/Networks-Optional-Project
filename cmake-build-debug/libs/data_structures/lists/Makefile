@@ -67,10 +67,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source"
+CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists//CMakeFiles/progress.marks"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" 0
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles /home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists//CMakeFiles/progress.marks
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/clean
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/preinstall
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/preinstall
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule
 .PHONY : libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ LinkedLists: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule
 
 # fast build rule for target.
 LinkedLists/fast:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build
 .PHONY : LinkedLists/fast
 
 linked_list.o: linked_list.c.o
@@ -150,7 +150,7 @@ linked_list.o: linked_list.c.o
 
 # target to build an object file
 linked_list.c.o:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.o
 .PHONY : linked_list.c.o
 
 linked_list.i: linked_list.c.i
@@ -159,7 +159,7 @@ linked_list.i: linked_list.c.i
 
 # target to preprocess a source file
 linked_list.c.i:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.i
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.i
 .PHONY : linked_list.c.i
 
 linked_list.s: linked_list.c.s
@@ -168,7 +168,7 @@ linked_list.s: linked_list.c.s
 
 # target to generate assembly for a file
 linked_list.c.s:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.s
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/linked_list.c.s
 .PHONY : linked_list.c.s
 
 # Help Target
@@ -194,6 +194,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -12,13 +12,12 @@
 #define MAX_BULLETS 1000
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
-#define SPEED (70)
+#define SPEED (300)
 
 Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 
     int frame_width, frame_height;
     //creating texture
-
     sprite.alive=1;
     //raising error if couldn't create texture
     if (!sprite.sprite_texture) {
@@ -69,8 +68,7 @@ void avoid_wall(Wall *wall, Sprite *sprite){
     }
 }
 
-void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *walls[]){
-
+void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall walls[]){
 
     while(SDL_PollEvent(&event)){
         switch (event.type){
@@ -154,7 +152,6 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
     sprite->x_pos += (float)x_vel/45;
     sprite->y_pos += (float)y_vel/45;
 
-    SendPos(sprite);
 
     //collision detection:
     if(sprite->x_pos <= 0) sprite->x_pos = 0;
@@ -164,7 +161,7 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
 
     //walls
     for(int i = 0; i<6;i++) {
-        avoid_wall(walls[i], sprite);
+        avoid_wall(&walls[i], sprite);
 
     }
 
@@ -184,8 +181,8 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall *w
 
         else {
             for (int j = 0; j < 6; j++) {
-                if (sprite->bullet.x >= walls[j]->x-5 && sprite->bullet.x <= walls[j]->x + walls[j]->rec.w+1 &&
-                    sprite->bullet.y >= walls[j]->y - 7 && sprite->bullet.y <= walls[j]->y + walls[j]->rec.h) {
+                if (sprite->bullet.x >= walls[j].x-5 && sprite->bullet.x <= walls[j].x + walls[j].rec.w+1 &&
+                    sprite->bullet.y >= walls[j].y - 7 && sprite->bullet.y <= walls[j].y + walls[j].rec.h) {
                     sprite->bullet=remove_bullet(&sprite->bullet);
                     break;
                 }

@@ -1,4 +1,4 @@
-# Install script for directory: /shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists
+# Install script for directory: /home/danis/Desktop/Source2/libs/data_structures/lists
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,6 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/data_structures/lists/nodes/cmake_install.cmake")
+  include("/home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists/nodes/cmake_install.cmake")
 endif()
 

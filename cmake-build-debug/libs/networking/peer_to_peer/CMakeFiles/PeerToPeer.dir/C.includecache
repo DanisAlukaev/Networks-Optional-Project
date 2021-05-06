@@ -6,25 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
 nodes/node.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/nodes/node.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h
+/home/danis/Desktop/Source2/libs/networking/client/client.h
 sys/socket.h
 -
 netinet/in.h
 -
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.c
+/home/danis/Desktop/Source2/libs/networking/peer_to_peer/peer2peer.c
 peer2peer.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.h
+/home/danis/Desktop/Source2/libs/networking/peer_to_peer/peer2peer.h
 ../client/client.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client/client.h
+/home/danis/Desktop/Source2/libs/networking/client/client.h
 ../server/server.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+/home/danis/Desktop/Source2/libs/networking/server/server.h
 stdio.h
 -
 string.h
@@ -32,13 +32,13 @@ string.h
 pthread.h
 -
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/peer_to_peer/peer2peer.h
+/home/danis/Desktop/Source2/libs/networking/peer_to_peer/peer2peer.h
 ../server/server.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+/home/danis/Desktop/Source2/libs/networking/server/server.h
 ../../data_structures/lists/linked_list.h
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/data_structures/lists/linked_list.h
+/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
 
-/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.h
+/home/danis/Desktop/Source2/libs/networking/server/server.h
 sys/socket.h
 -
 netinet/in.h

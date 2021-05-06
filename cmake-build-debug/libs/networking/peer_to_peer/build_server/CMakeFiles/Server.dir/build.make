@@ -62,10 +62,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source"
+CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/depend.make
@@ -78,16 +78,16 @@ include libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/flags.ma
 
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.o: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/flags.make
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.o: ../libs/networking/server/server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.o"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Server.dir/server.c.o -c "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.o"
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Server.dir/server.c.o -c /home/danis/Desktop/Source2/libs/networking/server/server.c
 
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Server.dir/server.c.i"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.c" > CMakeFiles/Server.dir/server.c.i
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/networking/server/server.c > CMakeFiles/Server.dir/server.c.i
 
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Server.dir/server.c.s"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server/server.c" -o CMakeFiles/Server.dir/server.c.s
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/networking/server/server.c -o CMakeFiles/Server.dir/server.c.s
 
 # Object files for target Server
 Server_OBJECTS = \
@@ -99,9 +99,9 @@ Server_EXTERNAL_OBJECTS =
 libs/networking/peer_to_peer/build_server/libServer.a: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/server.c.o
 libs/networking/peer_to_peer/build_server/libServer.a: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build.make
 libs/networking/peer_to_peer/build_server/libServer.a: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libServer.a"
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" && $(CMAKE_COMMAND) -P CMakeFiles/Server.dir/cmake_clean_target.cmake
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Server.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libServer.a"
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server && $(CMAKE_COMMAND) -P CMakeFiles/Server.dir/cmake_clean_target.cmake
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build: libs/networking/peer_to_peer/build_server/libServer.a
@@ -109,10 +109,10 @@ libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build: libs/netw
 .PHONY : libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build
 
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/clean:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" && $(CMAKE_COMMAND) -P CMakeFiles/Server.dir/cmake_clean.cmake
+	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server && $(CMAKE_COMMAND) -P CMakeFiles/Server.dir/cmake_clean.cmake
 .PHONY : libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/clean
 
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/depend:
-	cd "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/server" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server" "/shared/Study/2020-2021/S21/Networks/Optional Project/Source/cmake-build-debug/libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danis/Desktop/Source2 /home/danis/Desktop/Source2/libs/networking/server /home/danis/Desktop/Source2/cmake-build-debug /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/depend
 

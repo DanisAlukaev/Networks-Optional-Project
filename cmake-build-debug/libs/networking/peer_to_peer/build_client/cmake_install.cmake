@@ -1,4 +1,4 @@
-# Install script for directory: /shared/Study/2020-2021/S21/Networks/Optional Project/Source/libs/networking/client
+# Install script for directory: /home/danis/Desktop/Source2/libs/networking/client
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
