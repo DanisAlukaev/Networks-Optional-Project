@@ -15,14 +15,14 @@
 #include <SDL2/SDL_image.h>
 
 #define SERVERIP "10.91.54.190"
-#define PEERS 2
-#define SPRITESHEET ("libs/resources/playersprite.png")
+#define PEERS 3
+#define ENEMYSPRITE ("libs/resources/enemysprite.png")
+#define PLAYERSPRITE ("libs/resources/playersprite.png")
 #define WINDOW_WIDTH (640)
 #define WINDOW_HEIGHT (480)
 
 char *known_hosts[PEERS];
 Sprite tanks[PEERS];
-short got_the_packet[PEERS] = {0};
 SDL_Window *window;
 
 Uint32 render_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
@@ -243,7 +243,11 @@ void init_sprite(int id) {
     // initialized my coordinates
     Sprite sprite;
 
-    sprite.sprite_texture = IMG_LoadTexture(renderer, SPRITESHEET);
+    if (id == my_id) {
+        sprite.sprite_texture = IMG_LoadTexture(renderer, PLAYERSPRITE);
+    } else {
+        sprite.sprite_texture = IMG_LoadTexture(renderer, ENEMYSPRITE);
+    }
     sprite.dest.x = spawn_points[id].x;
     sprite.dest.y = spawn_points[id].y;
     sprite = sprite_init(sprite, window, renderer);
@@ -278,7 +282,6 @@ _Noreturn void *server_function(void *arg) {
                 break;
             }
         }
-        usleep(50 * 1000);
         RecvPos(request, &tanks[peer_idx]);
         close(client);
     }
@@ -323,6 +326,7 @@ _Noreturn void *client_function(void *arg) {
 
         SDL_RenderPresent(renderer);
         SDL_Delay(10);
+        usleep(50 * 1000);
     }
 
     // clean up resources before exiting
