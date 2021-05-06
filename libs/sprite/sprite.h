@@ -1,5 +1,6 @@
 #ifndef TESTING2_SPRITE_H
 #define TESTING2_SPRITE_H
+#define SPRITESHEET ("libs/resources/playersprite.png")
 
 #include <SDL2/SDL.h>
 #include "../map/map.h"

@@ -193,10 +193,10 @@ libs/networking/peer_to_peer/build_server/clean: libs/networking/peer_to_peer/bu
 
 # All Build rule for target.
 CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all
+CMakeFiles/Source2.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all
 CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 CMakeFiles/Source2.dir/all: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all
-CMakeFiles/Source2.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=11,12,13,14,15,16 "Built target Source2"
@@ -277,10 +277,10 @@ libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/clean:
 # Target rules for target libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir
 
 # All Build rule for target.
+libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all
-libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target PeerToPeer"

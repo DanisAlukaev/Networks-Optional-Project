@@ -59,8 +59,6 @@ SDL2/SDL.h
 /home/danis/Desktop/Source2/libs/networking/client/client.h
 ../libs/sprite/sprite.h
 /home/danis/Desktop/Source2/libs/sprite/sprite.h
-signal.h
--
 string.h
 -
 unistd.h
@@ -80,5 +78,7 @@ SDL2/SDL.h
 SDL2/SDL_timer.h
 -
 SDL2/SDL_image.h
+-
+signal.h
 -
 

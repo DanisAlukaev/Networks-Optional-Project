@@ -18,6 +18,8 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 
     int frame_width, frame_height;
     //creating texture
+
+
     sprite.alive=1;
     //raising error if couldn't create texture
     if (!sprite.sprite_texture) {
@@ -177,6 +179,11 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall wa
         else if(sprite->bullet.x <= sprite->x_pos+sprite->dest.w && sprite->bullet.x >= sprite->x_pos && sprite->bullet.y <= sprite->y_pos+sprite->dest.h && sprite->bullet.y >= sprite->y_pos){
             sprite->alive=0;
             SDL_DestroyTexture(sprite->sprite_texture);
+            SDL_DestroyTexture(sprite->sprite_texture);
+            sprite->bullet=remove_bullet(&sprite->bullet);
+            sprite->alive=0;
+            sprite->dest.x=-10000;
+            sprite->dest.y=-10000;
         }
 
         else {
@@ -219,20 +226,15 @@ void RenderSprite(SDL_Renderer *renderer, Sprite *sprite){
 
 
 void SendPos(Sprite *sprite){
-    int x, y, dir;
-    x = sprite->dest.x;
-    y = sprite->dest.y;
-    dir = sprite->direction;
-    sprintf(sprite->message, "%d %d %d \n", x, y, dir);
+
+    sprintf(sprite->message, "%d %d %d %d %d\n", sprite->dest.x, sprite->dest.y,
+            sprite->direction, (int)sprite->bullet.x, (int)sprite->bullet.y);
 }
 
 
 void RecvPos(char *message, Sprite *sprite){
 
-    //char *message = "1324 1234 5"
-    //char message[10]
-
-    int nums[3];
+    int nums[5];
     int len = strlen(message);
     char mes [len];
 
@@ -250,13 +252,13 @@ void RecvPos(char *message, Sprite *sprite){
     {
         sscanf(token, "%d", &var);
         nums[i++] = var;
-
         token = strtok (NULL, seps);
     }
 
     sprite->dest.x = nums[0];
     sprite->dest.y = nums[1];
     sprite->direction = nums[2];
-
+    sprite->bullet.x = (float) nums[3];
+    sprite->bullet.y = (float) nums[4];
 }
 
