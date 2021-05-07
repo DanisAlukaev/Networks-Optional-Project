@@ -219,11 +219,13 @@ void RenderSprite(SDL_Renderer *renderer, Sprite *sprite){
 
 
 void SendPos(Sprite *sprite){
-    int x, y, dir;
+    int x, y, dir, bullet_x, bullet_y;
     x = sprite->dest.x;
     y = sprite->dest.y;
     dir = sprite->direction;
-    sprintf(sprite->message, "%d %d %d \n", x, y, dir);
+    bullet_x = (int) sprite->bullet.x;
+    bullet_y = (int) sprite->bullet.y;
+    sprintf(sprite->message, "%d %d %d %d %d\n", x, y, dir, bullet_x, bullet_y);
 }
 
 
@@ -232,7 +234,7 @@ void RecvPos(char *message, Sprite *sprite){
     //char *message = "1324 1234 5"
     //char message[10]
 
-    int nums[3];
+    int nums[5];
     int len = strlen(message);
     char mes [len];
 
@@ -257,6 +259,9 @@ void RecvPos(char *message, Sprite *sprite){
     sprite->dest.x = nums[0];
     sprite->dest.y = nums[1];
     sprite->direction = nums[2];
+    sprite->bullet.x = (float) nums[3];
+    sprite->bullet.y = (float) nums[4];
+
 
 }
 
