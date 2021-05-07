@@ -1,4 +1,4 @@
-# Install script for directory: /home/danis/Desktop/Source2/libs/data_structures/lists
+# Install script for directory: /home/danis/Documents/Source/libs/data_structures/lists
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,6 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/danis/Desktop/Source2/cmake-build-debug/libs/data_structures/lists/nodes/cmake_install.cmake")
+  include("/home/danis/Documents/Source/cmake-build-debug/libs/data_structures/lists/nodes/cmake_install.cmake")
 endif()
 

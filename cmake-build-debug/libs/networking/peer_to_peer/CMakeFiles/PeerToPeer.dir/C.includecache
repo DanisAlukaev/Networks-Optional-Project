@@ -6,25 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
+/home/danis/Documents/Source/libs/data_structures/lists/linked_list.h
 nodes/node.h
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.h
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.h
 
-/home/danis/Desktop/Source2/libs/networking/client/client.h
+/home/danis/Documents/Source/libs/networking/client/client.h
 sys/socket.h
 -
 netinet/in.h
 -
 
-/home/danis/Desktop/Source2/libs/networking/peer_to_peer/peer2peer.c
+/home/danis/Documents/Source/libs/networking/peer_to_peer/peer2peer.c
 peer2peer.h
-/home/danis/Desktop/Source2/libs/networking/peer_to_peer/peer2peer.h
+/home/danis/Documents/Source/libs/networking/peer_to_peer/peer2peer.h
 ../client/client.h
-/home/danis/Desktop/Source2/libs/networking/client/client.h
+/home/danis/Documents/Source/libs/networking/client/client.h
 ../server/server.h
-/home/danis/Desktop/Source2/libs/networking/server/server.h
+/home/danis/Documents/Source/libs/networking/server/server.h
 stdio.h
 -
 string.h
@@ -32,13 +32,13 @@ string.h
 pthread.h
 -
 
-/home/danis/Desktop/Source2/libs/networking/peer_to_peer/peer2peer.h
+/home/danis/Documents/Source/libs/networking/peer_to_peer/peer2peer.h
 ../server/server.h
-/home/danis/Desktop/Source2/libs/networking/server/server.h
+/home/danis/Documents/Source/libs/networking/server/server.h
 ../../data_structures/lists/linked_list.h
-/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
+/home/danis/Documents/Source/libs/data_structures/lists/linked_list.h
 
-/home/danis/Desktop/Source2/libs/networking/server/server.h
+/home/danis/Documents/Source/libs/networking/server/server.h
 sys/socket.h
 -
 netinet/in.h

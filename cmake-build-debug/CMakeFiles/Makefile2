@@ -63,10 +63,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
+CMAKE_SOURCE_DIR = /home/danis/Documents/Source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/danis/Documents/Source/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -193,20 +193,20 @@ libs/networking/peer_to_peer/build_server/clean: libs/networking/peer_to_peer/bu
 
 # All Build rule for target.
 CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all
-CMakeFiles/Source2.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all
-CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 CMakeFiles/Source2.dir/all: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all
+CMakeFiles/Source2.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
+CMakeFiles/Source2.dir/all: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Source2.dir/build.make CMakeFiles/Source2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=11,12,13,14,15,16 "Built target Source2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=11,12,13,14,15,16 "Built target Source2"
 .PHONY : CMakeFiles/Source2.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Source2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Source2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Source2.dir/rule
 
 # Convenience name for target.
@@ -226,14 +226,14 @@ CMakeFiles/Source2.dir/clean:
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 	$(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build.make libs/data_structures/lists/CMakeFiles/LinkedLists.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target LinkedLists"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target LinkedLists"
 .PHONY : libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all
 
 # Build rule for subdir invocation for target.
 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 0
 .PHONY : libs/data_structures/lists/CMakeFiles/LinkedLists.dir/rule
 
 # Convenience name for target.
@@ -253,14 +253,14 @@ libs/data_structures/lists/CMakeFiles/LinkedLists.dir/clean:
 libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/build.make libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/build.make libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target Nodes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target Nodes"
 .PHONY : libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 
 # Build rule for subdir invocation for target.
 libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 0
 .PHONY : libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/rule
 
 # Convenience name for target.
@@ -277,20 +277,20 @@ libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/clean:
 # Target rules for target libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir
 
 # All Build rule for target.
-libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all
-libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/data_structures/lists/CMakeFiles/LinkedLists.dir/all
+libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/data_structures/lists/nodes/CMakeFiles/Nodes.dir/all
+libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all: libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build.make libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target PeerToPeer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target PeerToPeer"
 .PHONY : libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all
 
 # Build rule for subdir invocation for target.
 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 0
 .PHONY : libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/rule
 
 # Convenience name for target.
@@ -310,14 +310,14 @@ libs/networking/peer_to_peer/CMakeFiles/PeerToPeer.dir/clean:
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build.make libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build.make libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Client"
 .PHONY : libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all
 
 # Build rule for subdir invocation for target.
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 0
 .PHONY : libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/rule
 
 # Convenience name for target.
@@ -337,14 +337,14 @@ libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/clean:
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build.make libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build.make libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target Server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target Server"
 .PHONY : libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
 
 # Build rule for subdir invocation for target.
 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danis/Documents/Source/cmake-build-debug/CMakeFiles 0
 .PHONY : libs/networking/peer_to_peer/build_server/CMakeFiles/Server.dir/rule
 
 # Convenience name for target.

@@ -1,4 +1,4 @@
-# Install script for directory: /home/danis/Desktop/Source2/libs/data_structures/lists/nodes
+# Install script for directory: /home/danis/Documents/Source/libs/data_structures/lists/nodes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

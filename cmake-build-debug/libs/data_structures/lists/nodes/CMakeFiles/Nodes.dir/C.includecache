@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.c
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.c
 node.h
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.h
 stdlib.h
 -
 string.h
 -
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.h
 

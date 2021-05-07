@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/danis/Desktop/Source2/libs/networking/server/server.c
+/home/danis/Documents/Source/libs/networking/server/server.c
 server.h
-/home/danis/Desktop/Source2/libs/networking/server/server.h
+/home/danis/Documents/Source/libs/networking/server/server.h
 stdio.h
 -
 stdlib.h
 -
 
-/home/danis/Desktop/Source2/libs/networking/server/server.h
+/home/danis/Documents/Source/libs/networking/server/server.h
 sys/socket.h
 -
 netinet/in.h

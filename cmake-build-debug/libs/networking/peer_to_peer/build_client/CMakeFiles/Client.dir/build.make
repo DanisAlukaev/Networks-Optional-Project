@@ -62,10 +62,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
+CMAKE_SOURCE_DIR = /home/danis/Documents/Source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/danis/Documents/Source/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/depend.make
@@ -78,16 +78,16 @@ include libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/flags.ma
 
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/flags.make
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o: ../libs/networking/client/client.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o"
-	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Client.dir/client.c.o -c /home/danis/Desktop/Source2/libs/networking/client/client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o"
+	cd /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Client.dir/client.c.o -c /home/danis/Documents/Source/libs/networking/client/client.c
 
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Client.dir/client.c.i"
-	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/networking/client/client.c > CMakeFiles/Client.dir/client.c.i
+	cd /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Documents/Source/libs/networking/client/client.c > CMakeFiles/Client.dir/client.c.i
 
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Client.dir/client.c.s"
-	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/networking/client/client.c -o CMakeFiles/Client.dir/client.c.s
+	cd /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Documents/Source/libs/networking/client/client.c -o CMakeFiles/Client.dir/client.c.s
 
 # Object files for target Client
 Client_OBJECTS = \
@@ -99,9 +99,9 @@ Client_EXTERNAL_OBJECTS =
 libs/networking/peer_to_peer/build_client/libClient.a: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/client.c.o
 libs/networking/peer_to_peer/build_client/libClient.a: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build.make
 libs/networking/peer_to_peer/build_client/libClient.a: libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libClient.a"
-	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client && $(CMAKE_COMMAND) -P CMakeFiles/Client.dir/cmake_clean_target.cmake
-	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Client.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libClient.a"
+	cd /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client && $(CMAKE_COMMAND) -P CMakeFiles/Client.dir/cmake_clean_target.cmake
+	cd /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build: libs/networking/peer_to_peer/build_client/libClient.a
@@ -109,10 +109,10 @@ libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build: libs/netw
 .PHONY : libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/build
 
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/clean:
-	cd /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client && $(CMAKE_COMMAND) -P CMakeFiles/Client.dir/cmake_clean.cmake
+	cd /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client && $(CMAKE_COMMAND) -P CMakeFiles/Client.dir/cmake_clean.cmake
 .PHONY : libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/clean
 
 libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/depend:
-	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danis/Desktop/Source2 /home/danis/Desktop/Source2/libs/networking/client /home/danis/Desktop/Source2/cmake-build-debug /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client /home/danis/Desktop/Source2/cmake-build-debug/libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danis/Documents/Source/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danis/Documents/Source /home/danis/Documents/Source/libs/networking/client /home/danis/Documents/Source/cmake-build-debug /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client /home/danis/Documents/Source/cmake-build-debug/libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libs/networking/peer_to_peer/build_client/CMakeFiles/Client.dir/depend
 

@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.c
+/home/danis/Documents/Source/libs/data_structures/lists/linked_list.c
 stdlib.h
 -
 stdio.h
 -
 linked_list.h
-/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
+/home/danis/Documents/Source/libs/data_structures/lists/linked_list.h
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/linked_list.h
+/home/danis/Documents/Source/libs/data_structures/lists/linked_list.h
 nodes/node.h
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.h
 
-/home/danis/Desktop/Source2/libs/data_structures/lists/nodes/node.h
+/home/danis/Documents/Source/libs/data_structures/lists/nodes/node.h
 

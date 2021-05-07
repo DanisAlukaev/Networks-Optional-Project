@@ -1,17 +1,18 @@
 #include "../libs/networking/peer_to_peer/peer2peer.h"
 #include "../libs/networking/client/client.h"
 #include "../libs/sprite/sprite.h"
+#include <signal.h>
 
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 #include <arpa/inet.h>
 #include<errno.h>
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
-#include <signal.h>
 
 #define SERVERIP "10.91.54.190"
 #define PEERS 3
@@ -22,7 +23,6 @@
 
 char *known_hosts[PEERS];
 Sprite tanks[PEERS];
-short got_the_packet[PEERS] = {0};
 SDL_Window *window;
 
 Uint32 render_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
@@ -34,13 +34,6 @@ SDL_Surface *bullet;
 
 char local_ip_address[100];
 
-int ports[28] = {1248, 1249, 1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257,
-                 1258, 1259, 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267,
-                 1268, 1269, 1270, 1271, 1272, 1273, 1274, 1275};
-
-int mapping_ports_ids_peers_ids[PEERS][PEERS];
-
-
 //structure that is used to store x,y coordinates
 struct Coordinate {
     int x;
@@ -48,14 +41,20 @@ struct Coordinate {
 };
 
 // сreating spawn_points for tanks
-struct Coordinate spawn_points[10] = {{.x = 0, .y=240},
-                                      {.x = 0, .y=430},
-                                      {.x = 599, .y=430},
-                                      {.x = 599, .y=0},
-                                      {.x = 0, .y=0},
-                                      {.x = 0, .y=143},
-                                      {.x = 440, .y=200},
-                                      {.x = 407, .y=332}};
+struct Coordinate spawn_points[8] = {{.x = 0, .y=240},
+                                     {.x = 0, .y=430},
+                                     {.x = 599, .y=430},
+                                     {.x = 599, .y=0},
+                                     {.x = 0, .y=0},
+                                     {.x = 0, .y=143},
+                                     {.x = 440, .y=200},
+                                     {.x = 407, .y=332}};
+
+int ports[28] = {1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259,
+                 1260, 1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269,
+                 1270, 1271, 1272, 1273, 1274, 1275, 1276, 1277};
+
+int **mapping_ports_ids_peers_ids;
 
 /* Method used to get local ip address of the peer.
  * Establishes connection with Google DNS server.
@@ -71,12 +70,13 @@ void get_local_ip_address(char *buffer) {
     if (sock < 0) {
         perror("Socket error");
     }
+
     memset(&serv, 0, sizeof(serv));
     serv.sin_family = AF_INET;
     serv.sin_addr.s_addr = inet_addr(google_dns_server);
     serv.sin_port = htons(dns_port);
 
-    int code = connect(sock, (const struct sockaddr *) &serv, sizeof(serv));
+    connect(sock, (const struct sockaddr *) &serv, sizeof(serv));
 
     struct sockaddr_in name;
     socklen_t namelen = sizeof(name);
@@ -121,17 +121,18 @@ int init_variables_visualization() {
     }
 
     // TODO: move info about the bullets to the sprite
-
+    SDL_Texture *bulletTexture;
+    SDL_Surface *bullet = IMG_Load("libs/resources/bullet.png");
+    if (!bullet) {
+        printf("Cannot find bullet\n");
+        return 1;
+    }
+    bulletTexture = SDL_CreateTextureFromSurface(renderer, bullet);
+    SDL_FreeSurface(bullet);
 
     // initialize map
     map = map_init(map, window, renderer);
     render_map(renderer, &map);
-    bullet = IMG_Load("libs/resources/bullet.png");
-    if (!bullet) {
-        printf("Cannot find bullet\n");
-    }
-    bulletTexture = SDL_CreateTextureFromSurface(renderer, bullet);
-    SDL_FreeSurface(bullet);
 }
 
 void join_waiting_room() {
@@ -159,7 +160,7 @@ void join_waiting_room() {
         printf("\nConnection Failed \n");
         return;
     }
-    char *hello = "JOIN_POOL";
+    char *hello = "JOIN_LOBBY";
     send(socket_cd, hello, strlen(hello), 0);
     read(socket_cd, buffer, 255);
     printf("%s\n", buffer);
@@ -168,7 +169,9 @@ void join_waiting_room() {
     // waiting for other peers
     while (1) {
         sleep(1);
-        memset(buffer, 0, 255);
+        int socket_cd;
+        struct sockaddr_in server_address;
+        char buffer[255] = {0};
         get_local_ip_address(local_ip_address);
         printf("Current IP address: %s. \n", local_ip_address);
 
@@ -199,7 +202,7 @@ void join_waiting_room() {
             break;
     }
     printf("Synchronization... \n");
-    sleep(8);
+    sleep(5);
     printf("Request for known hosts... \n");
     // request the list of known hosts
 
@@ -228,14 +231,14 @@ void join_waiting_room() {
     close(socket_cd);
 
     // form list of known hosts
-    int idx = 0;
+    int i = 0;
     char *p = strtok(buffer, " ");
     while (p != NULL) {
-        known_hosts[idx] = p;
+        known_hosts[i] = p;
         char *tempo = (char *) malloc(20 * sizeof(char));
         strcpy(tempo, p);
-        known_hosts[idx] = tempo;
-        idx++;
+        known_hosts[i] = tempo;
+        i++;
         p = strtok(NULL, " ");
     }
 
@@ -262,19 +265,23 @@ void init_sprite(int id) {
 }
 
 _Noreturn void *server_function(void *arg) {
+
     struct arg_struct *args = (struct arg_struct *) arg;
     struct PeerToPeer *p2p = args->p2p;
-    int port_id = args->port_id;
+    int port = args->port_id;
+    int server_id = args->server_id;
+
+    printf("Server running on port %d.\n", ports[port]);
     struct sockaddr_in address;
     int address_length = sizeof(address);
 
-    printf("Server on port %d is running.\n", ports[port_id]);
-
     while (1) {
-        int client = accept(p2p->servers[port_id].socket, (struct sockaddr *) &address, (socklen_t *) &address_length);
+        int client = accept(p2p->servers[server_id].socket, (struct sockaddr *) &address,
+                            (socklen_t *) &address_length);
         char request[255];
         memset(request, 0, 255);
         read(client, request, 255);
+//        printf("Received %s\n", request);
 
         // get string representation of client's ip
         struct sockaddr_in *pV4Addr = (struct sockaddr_in *) &address;
@@ -296,6 +303,16 @@ _Noreturn void *server_function(void *arg) {
     }
 }
 
+/**
+ * Client routine for the peer.
+ *
+ * Primarily, the method initializes set of sprites.
+ * Until the window is closed, it handles user's action, then updates data of sprite accordingly.
+ * Data describing the sprite, i.e. its position, rotation and position of bullet is serialized.
+ * Serialized data is sent to each peer via correspondent socket.
+ *
+ * @param arg - instance of class PeerToPeer.
+ */
 _Noreturn void *client_function(void *arg) {
     struct PeerToPeer *p2p = arg;
 
@@ -305,6 +322,7 @@ _Noreturn void *client_function(void *arg) {
 
     // while the window is open
     int close_requested = 0;
+
     while (!close_requested) {
         // check for event
         SDL_Event event;
@@ -312,8 +330,8 @@ _Noreturn void *client_function(void *arg) {
 
         // update message field of the sprite
         SendPos(&tanks[my_id]);
-        char *request = (char *) malloc(20 * sizeof(char));
-        request = tanks[my_id].message;
+        char *request = tanks[my_id].message;
+
         for (int i = 0; i < PEERS; i++) {
             // for all peers except the current
             // connect to the socket
@@ -349,35 +367,49 @@ _Noreturn void *client_function(void *arg) {
     SDL_Quit();
 }
 
+/**
+ * Method used to map indices of known hosts and ports.
+ *
+ * For instance, the result for 4 PEERS will be
+ * -1   0   1   2
+ *  0  -1   3   4
+ *  1   3  -1   5
+ *  2   4   5  -1
+ *
+ *  Accordingly, for socket creation between peer with index 0 and peer with index 1 will be used port with index 0.
+ */
 void init_mapping_peers_ports() {
+    mapping_ports_ids_peers_ids = (int **) malloc(PEERS * sizeof(int *));
+    for (int i = 0; i < PEERS; i++) {
+        mapping_ports_ids_peers_ids[i] = (int *) malloc(PEERS * sizeof(int));
+    }
     int incremented_port = 0;
     for (int i = 0; i < PEERS; i++) {
         for (int j = i; j < PEERS; j++) {
             if (i == j) {
                 mapping_ports_ids_peers_ids[i][j] = -1;
-            } else {
-                mapping_ports_ids_peers_ids[i][j] = incremented_port;
-                mapping_ports_ids_peers_ids[j][i] = incremented_port;
-                incremented_port++;
+                continue;
             }
+            mapping_ports_ids_peers_ids[i][j] = incremented_port;
+            mapping_ports_ids_peers_ids[j][i] = incremented_port;
+            incremented_port++;
         }
-    }
-    for (int i = 0; i < PEERS; i++) {
-        for (int j = 0; j < PEERS; j++) {
-            printf("%d ", mapping_ports_ids_peers_ids[i][j]);
-        }
-        printf("\n");
     }
 }
 
 
 int main() {
+    // disable errors for broken pipe occurring when socket is busy/sigaction(SIGPIPE, &(struct sigaction) {SIG_IGN}, NULL);
     sigaction(SIGPIPE, &(struct sigaction) {SIG_IGN}, NULL);
+    // join lobby and fill in list of known hosts
     join_waiting_room();
+    // initialize canvas and sprites
     init_variables_visualization();
+    // fill in table with ids mapping peers addresses and ports for socket creation
     init_mapping_peers_ports();
-    struct PeerToPeer p2p = peer_to_peer_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, PEERS,
-                                                     mapping_ports_ids_peers_ids, my_id,
-                                                     server_function, client_function);
+
+
+    struct PeerToPeer p2p = peer_to_peer_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, *known_hosts, PEERS, my_id,
+                                                     mapping_ports_ids_peers_ids, server_function, client_function);
     p2p.user_portal(&p2p);
 }

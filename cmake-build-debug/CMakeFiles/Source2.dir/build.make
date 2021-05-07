@@ -62,10 +62,10 @@ RM = /home/danis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.6693.114/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danis/Desktop/Source2
+CMAKE_SOURCE_DIR = /home/danis/Documents/Source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danis/Desktop/Source2/cmake-build-debug
+CMAKE_BINARY_DIR = /home/danis/Documents/Source/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Source2.dir/depend.make
@@ -78,68 +78,68 @@ include CMakeFiles/Source2.dir/flags.make
 
 CMakeFiles/Source2.dir/src/main.c.o: CMakeFiles/Source2.dir/flags.make
 CMakeFiles/Source2.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Source2.dir/src/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/src/main.c.o -c /home/danis/Desktop/Source2/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Source2.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/src/main.c.o -c /home/danis/Documents/Source/src/main.c
 
 CMakeFiles/Source2.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Source2.dir/src/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/src/main.c > CMakeFiles/Source2.dir/src/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Documents/Source/src/main.c > CMakeFiles/Source2.dir/src/main.c.i
 
 CMakeFiles/Source2.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Source2.dir/src/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/src/main.c -o CMakeFiles/Source2.dir/src/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Documents/Source/src/main.c -o CMakeFiles/Source2.dir/src/main.c.s
 
 CMakeFiles/Source2.dir/libs/sprite/sprite.c.o: CMakeFiles/Source2.dir/flags.make
 CMakeFiles/Source2.dir/libs/sprite/sprite.c.o: ../libs/sprite/sprite.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Source2.dir/libs/sprite/sprite.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/sprite/sprite.c.o -c /home/danis/Desktop/Source2/libs/sprite/sprite.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Source2.dir/libs/sprite/sprite.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/sprite/sprite.c.o -c /home/danis/Documents/Source/libs/sprite/sprite.c
 
 CMakeFiles/Source2.dir/libs/sprite/sprite.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Source2.dir/libs/sprite/sprite.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/sprite/sprite.c > CMakeFiles/Source2.dir/libs/sprite/sprite.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Documents/Source/libs/sprite/sprite.c > CMakeFiles/Source2.dir/libs/sprite/sprite.c.i
 
 CMakeFiles/Source2.dir/libs/sprite/sprite.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Source2.dir/libs/sprite/sprite.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/sprite/sprite.c -o CMakeFiles/Source2.dir/libs/sprite/sprite.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Documents/Source/libs/sprite/sprite.c -o CMakeFiles/Source2.dir/libs/sprite/sprite.c.s
 
 CMakeFiles/Source2.dir/libs/map/map.c.o: CMakeFiles/Source2.dir/flags.make
 CMakeFiles/Source2.dir/libs/map/map.c.o: ../libs/map/map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Source2.dir/libs/map/map.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/map/map.c.o -c /home/danis/Desktop/Source2/libs/map/map.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Source2.dir/libs/map/map.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/map/map.c.o -c /home/danis/Documents/Source/libs/map/map.c
 
 CMakeFiles/Source2.dir/libs/map/map.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Source2.dir/libs/map/map.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/map/map.c > CMakeFiles/Source2.dir/libs/map/map.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Documents/Source/libs/map/map.c > CMakeFiles/Source2.dir/libs/map/map.c.i
 
 CMakeFiles/Source2.dir/libs/map/map.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Source2.dir/libs/map/map.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/map/map.c -o CMakeFiles/Source2.dir/libs/map/map.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Documents/Source/libs/map/map.c -o CMakeFiles/Source2.dir/libs/map/map.c.s
 
 CMakeFiles/Source2.dir/libs/bullet/bullet.c.o: CMakeFiles/Source2.dir/flags.make
 CMakeFiles/Source2.dir/libs/bullet/bullet.c.o: ../libs/bullet/bullet.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Source2.dir/libs/bullet/bullet.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/bullet/bullet.c.o -c /home/danis/Desktop/Source2/libs/bullet/bullet.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Source2.dir/libs/bullet/bullet.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/bullet/bullet.c.o -c /home/danis/Documents/Source/libs/bullet/bullet.c
 
 CMakeFiles/Source2.dir/libs/bullet/bullet.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Source2.dir/libs/bullet/bullet.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/bullet/bullet.c > CMakeFiles/Source2.dir/libs/bullet/bullet.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Documents/Source/libs/bullet/bullet.c > CMakeFiles/Source2.dir/libs/bullet/bullet.c.i
 
 CMakeFiles/Source2.dir/libs/bullet/bullet.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Source2.dir/libs/bullet/bullet.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/bullet/bullet.c -o CMakeFiles/Source2.dir/libs/bullet/bullet.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Documents/Source/libs/bullet/bullet.c -o CMakeFiles/Source2.dir/libs/bullet/bullet.c.s
 
 CMakeFiles/Source2.dir/libs/wall/wall.c.o: CMakeFiles/Source2.dir/flags.make
 CMakeFiles/Source2.dir/libs/wall/wall.c.o: ../libs/wall/wall.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Source2.dir/libs/wall/wall.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/wall/wall.c.o -c /home/danis/Desktop/Source2/libs/wall/wall.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Source2.dir/libs/wall/wall.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Source2.dir/libs/wall/wall.c.o -c /home/danis/Documents/Source/libs/wall/wall.c
 
 CMakeFiles/Source2.dir/libs/wall/wall.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Source2.dir/libs/wall/wall.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Desktop/Source2/libs/wall/wall.c > CMakeFiles/Source2.dir/libs/wall/wall.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danis/Documents/Source/libs/wall/wall.c > CMakeFiles/Source2.dir/libs/wall/wall.c.i
 
 CMakeFiles/Source2.dir/libs/wall/wall.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Source2.dir/libs/wall/wall.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Desktop/Source2/libs/wall/wall.c -o CMakeFiles/Source2.dir/libs/wall/wall.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danis/Documents/Source/libs/wall/wall.c -o CMakeFiles/Source2.dir/libs/wall/wall.c.s
 
 # Object files for target Source2
 Source2_OBJECTS = \
@@ -165,7 +165,7 @@ Source2: libs/data_structures/lists/nodes/libNodes.a
 Source2: libs/networking/peer_to_peer/build_client/libClient.a
 Source2: libs/networking/peer_to_peer/build_server/libServer.a
 Source2: CMakeFiles/Source2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Source2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danis/Documents/Source/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Source2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Source2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -178,6 +178,6 @@ CMakeFiles/Source2.dir/clean:
 .PHONY : CMakeFiles/Source2.dir/clean
 
 CMakeFiles/Source2.dir/depend:
-	cd /home/danis/Desktop/Source2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danis/Desktop/Source2 /home/danis/Desktop/Source2 /home/danis/Desktop/Source2/cmake-build-debug /home/danis/Desktop/Source2/cmake-build-debug /home/danis/Desktop/Source2/cmake-build-debug/CMakeFiles/Source2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danis/Documents/Source/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danis/Documents/Source /home/danis/Documents/Source /home/danis/Documents/Source/cmake-build-debug /home/danis/Documents/Source/cmake-build-debug /home/danis/Documents/Source/cmake-build-debug/CMakeFiles/Source2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Source2.dir/depend
 

@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/danis/Desktop/Source2/libs/networking/client/client.c
+/home/danis/Documents/Source/libs/networking/client/client.c
 client.h
-/home/danis/Desktop/Source2/libs/networking/client/client.h
+/home/danis/Documents/Source/libs/networking/client/client.h
 stdlib.h
 -
 arpa/inet.h
@@ -18,7 +18,7 @@ string.h
 unistd.h
 -
 
-/home/danis/Desktop/Source2/libs/networking/client/client.h
+/home/danis/Documents/Source/libs/networking/client/client.h
 sys/socket.h
 -
 netinet/in.h
