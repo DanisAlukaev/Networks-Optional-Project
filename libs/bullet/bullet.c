@@ -3,8 +3,8 @@
 #include <SDL2/SDL_timer.h>
 #include "bullet.h"
 
-#define WINDOW_WIDTH (640)
-#define WINDOW_HEIGHT (480)
+#define WINDOW_WIDTH (1280)
+#define WINDOW_HEIGHT (720)
 #define SPEED (300)
 #define MAX_BULLETS 1000
 

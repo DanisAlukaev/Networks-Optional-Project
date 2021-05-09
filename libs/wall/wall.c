@@ -16,8 +16,6 @@ Wall wall_init(Wall wall, SDL_Window *window, SDL_Renderer *renderer){
     int frame_width, frame_height;
     wall.rec.x=(int) wall.x;
     wall.rec.y=(int) wall.y;
-    wall.rec.w = 225;
-    wall.rec.h = 15;
     return wall;
 }
 

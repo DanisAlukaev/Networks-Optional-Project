@@ -20,7 +20,7 @@ typedef struct Sprite{
 
 Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer);
 
-void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall walls[]);
+void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall walls[], Sprite *tanks);
 
 void RenderSprite(SDL_Renderer *renderer, Sprite *sprite);
 

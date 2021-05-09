@@ -1,2 +1,0 @@
-/usr/bin/ar qc libNodes.a CMakeFiles/Nodes.dir/node.c.o
-/usr/bin/ranlib libNodes.a

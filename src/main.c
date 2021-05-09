@@ -6,19 +6,19 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <arpa/inet.h>
-#include<errno.h>
+#include <errno.h>
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 
 #define SERVERIP "10.91.54.190"
-#define PEERS 3
+#define PEERS 1
 
 #define ENEMYSPRITE ("libs/resources/enemysprite.png")
 #define PLAYERSPRITE ("libs/resources/playersprite.png")
-#define WINDOW_WIDTH (640)
-#define WINDOW_HEIGHT (480)
+#define WINDOW_WIDTH (1280)
+#define WINDOW_HEIGHT (720)
 
 char *known_hosts[PEERS];
 int **mapping_ports_ids_peers_ids;
@@ -125,8 +125,7 @@ void init_variables_visualization() {
     render_map(renderer, &map);
 
     // initialize bullets
-    SDL_Texture *bulletTexture;
-    SDL_Surface *bullet = IMG_Load("libs/resources/bullet.png");
+    bullet = IMG_Load("libs/resources/bullet.png");
     if (!bullet) {
         printf("Cannot find bullet\n");
         return;
@@ -135,6 +134,23 @@ void init_variables_visualization() {
     SDL_FreeSurface(bullet);
 }
 
+/**
+ * Method used to initialize sprite.
+ * Set up coordinates, texture and invokes sprite constructor.
+ * @param id
+ */
+void init_sprite(int id) {
+    Sprite sprite;
+    if (id == my_id) {
+        sprite.sprite_texture = IMG_LoadTexture(renderer, PLAYERSPRITE);
+    } else {
+        sprite.sprite_texture = IMG_LoadTexture(renderer, ENEMYSPRITE);
+    }
+    sprite.dest.x = spawn_points[id].x;
+    sprite.dest.y = spawn_points[id].y;
+    sprite = sprite_init(sprite, window, renderer);
+    tanks[id] = sprite;
+}
 /**
  * Method used to join the gaming lobby.
  * Establishes connection with the announcement server.
@@ -150,7 +166,7 @@ void join_waiting_room() {
     char request[255] = "JOIN_LOBBY";
     char buffer[255] = {0};
     strcpy(buffer, client.request(&client, SERVERIP, request));
-    printf("Announcement server: %s\n", buffer);
+    printf("%s\n", buffer);
 
     // wait for other peers to join
     while (1) {
@@ -161,11 +177,12 @@ void join_waiting_room() {
 
         printf("Current IP address: %s. \n", local_ip_address);
 
+        client = client_constructor(AF_INET, SOCK_STREAM, 0, 1249, INADDR_ANY);
         strcpy(request, "GET_NUMBER_PLAYERS");
         strcpy(buffer, client.request(&client, SERVERIP, request));
-        printf("Announcement server: %s\n", buffer);
+        printf("%s\n", buffer);
         // TODO: change to DONE
-        if (strcmp(buffer, "Done") == 0)
+        if (strcmp(buffer, "DONE") == 0)
             break;
     }
     // wait for other peers to finish
@@ -179,6 +196,7 @@ void join_waiting_room() {
     memset(buffer, 0, 255);
     memset(request, 0, 255);
 
+    client = client_constructor(AF_INET, SOCK_STREAM, 0, 1249, INADDR_ANY);
     strcpy(request, "GET_KNOWN_HOSTS");
     strcpy(buffer, client.request(&client, SERVERIP, request));
 
@@ -203,25 +221,6 @@ void join_waiting_room() {
         if (strcmp(local_ip_address, known_hosts[i]) == 0)
             my_id = i;
 }
-
-/**
- * Method used to initialize sprite.
- * Set up coordinates, texture and invokes sprite constructor.
- * @param id
- */
-void init_sprite(int id) {
-    Sprite sprite;
-    if (id == my_id) {
-        sprite.sprite_texture = IMG_LoadTexture(renderer, PLAYERSPRITE);
-    } else {
-        sprite.sprite_texture = IMG_LoadTexture(renderer, ENEMYSPRITE);
-    }
-    sprite.dest.x = spawn_points[id].x;
-    sprite.dest.y = spawn_points[id].y;
-    sprite = sprite_init(sprite, window, renderer);
-    tanks[id] = sprite;
-}
-
 /**
  * Method used to determine id of the specified host.
  *
@@ -258,22 +257,28 @@ _Noreturn void *server_function(void *arg) {
     int address_length = sizeof(address);
 
     printf("Server running on port %d.\n", ports[port]);
+    int client;
+    char request[255];
+    struct sockaddr_in *pV4Addr;
+    struct in_addr ipAddr;
+    char client_address[INET_ADDRSTRLEN];
+    int peer_idx;
     while (1) {
         // accept connection via correspondent socket
-        int client = accept(p2p->servers[server_id].socket, (struct sockaddr *) &address,
+        client = accept(p2p->servers[server_id].socket, (struct sockaddr *) &address,
                             (socklen_t *) &address_length);
-        char request[255];
+
         memset(request, 0, 255);
         read(client, request, 255);
 
         // get string representation of client's ip
-        struct sockaddr_in *pV4Addr = (struct sockaddr_in *) &address;
-        struct in_addr ipAddr = pV4Addr->sin_addr;
-        char client_address[INET_ADDRSTRLEN];
+        pV4Addr = (struct sockaddr_in *) &address;
+        ipAddr = pV4Addr->sin_addr;
+
         inet_ntop(AF_INET, &ipAddr, client_address, INET_ADDRSTRLEN);
 
         // determine index of the tank
-        int peer_idx = get_id_known_host(client_address);
+        peer_idx = get_id_known_host(client_address);
         // update data of the sprite
         RecvPos(request, &tanks[peer_idx]);
         close(client);
@@ -300,21 +305,24 @@ _Noreturn void *client_function(void *arg) {
 
     // while the window is open
     int close_requested = 0;
-
+    SDL_Event event;
+    char *request;
+    struct Client client;
     while (!close_requested) {
-        // check for event
-        SDL_Event event;
-        EventHandler(event, &tanks[my_id], &close_requested, map.walls);
+        //check for event
+
+        EventHandler(event, &tanks[my_id], &close_requested, map.walls, tanks);
+
 
         // serialize the data of sprite
         SendPos(&tanks[my_id]);
-        char *request = tanks[my_id].message;
+        request = tanks[my_id].message;
 
         for (int i = 0; i < PEERS; i++) {
             // for all peers except the current
             if (i != my_id) {
                 // send the self and bullet's position, direction
-                struct Client client = client_constructor(p2p->domain, p2p->service, p2p->protocol,
+                client = client_constructor(p2p->domain, p2p->service, p2p->protocol,
                                                           ports[mapping_ports_ids_peers_ids[my_id][i]], p2p->interface);
                 client.request(&client, known_hosts[i], request);
             }
@@ -322,16 +330,25 @@ _Noreturn void *client_function(void *arg) {
 
         // render the map, sprite, and bullets
         render_map(renderer, &map);
+
         for (int i = 0; i < PEERS; i++) {
-            RenderSprite(renderer, &tanks[i]);
-            if (tanks[i].bullet.isShot) {
-                SDL_Rect rect = {(int) tanks[i].bullet.x, (int) tanks[i].bullet.y, 12, 12};
-                SDL_RenderCopy(renderer, bulletTexture, NULL, &rect);
+            if(tanks[i].alive) {
+                RenderSprite(renderer, &tanks[i]);
+                if (tanks[i].bullet.isShot) {
+                    SDL_Rect rect = {(int) tanks[i].bullet.x, (int) tanks[i].bullet.y, 12, 12};
+                    SDL_RenderCopy(renderer, bulletTexture, NULL, &rect);
+                }
             }
+            else{
+                SDL_DestroyTexture(tanks[i].sprite_texture);
+            }
+
+
         }
         SDL_RenderPresent(renderer);
         SDL_Delay(10);
         usleep(50 * 1000);
+
     }
 
     // clean up resources before exiting

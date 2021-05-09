@@ -9,7 +9,7 @@
 typedef struct Map {
     SDL_Texture *map_texture;
     SDL_Rect map;
-    Wall walls[6];
+    Wall walls[20];
 } Map;
 
 Map map_init(Map map, SDL_Window *window, SDL_Renderer *renderer);
