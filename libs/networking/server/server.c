@@ -19,6 +19,8 @@ struct Server server_constructor(int domain, int service, int protocol, u_long i
 
     // Create a socket for the server.
     server.socket = socket(domain, service, protocol);
+    int option = 1;
+    setsockopt(server.socket, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
     // Confirm the connection was successful.
     if (server.socket == 0) {
         perror("Failed to connect a socket...\n");

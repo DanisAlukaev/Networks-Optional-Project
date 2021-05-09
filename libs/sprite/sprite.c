@@ -13,6 +13,7 @@
 #define WINDOW_WIDTH (1280)
 #define WINDOW_HEIGHT (720)
 #define SPEED (300)
+#define PEERS 2
 
 Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 
@@ -47,8 +48,9 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 
     sprite.up = sprite.down = sprite.right = sprite.left = 0;
     sprite.direction = 0;
-
-    sprite.message = (char*) malloc(20* sizeof(char));
+    sprite.bullet.isShot = 0;
+    remove_bullet(&sprite.bullet);
+    sprite.message = (char*) malloc(26* sizeof(char));
 
     return sprite;
 }
@@ -168,8 +170,8 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall wa
 
     sprite->dest.y = (int) sprite->y_pos;
     sprite->dest.x = (int) sprite->x_pos;
-    for(int i=0;i<3;i++){
-        for(int j=0;j<3;j++) {
+    for(int i=0;i<PEERS;i++){
+        for(int j=0;j<PEERS;j++) {
             if (tanks[i].bullet.x <= tanks[j].x_pos +tanks[j].dest.w && tanks[i].bullet.x >= tanks[j].x_pos &&
                 tanks[i].bullet.y <= tanks[j].y_pos + tanks[j].dest.h && tanks[i].bullet.y >= tanks[j].y_pos) {
                 tanks[j].alive = 0;

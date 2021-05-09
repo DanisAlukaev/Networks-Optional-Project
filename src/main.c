@@ -11,16 +11,20 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
+#include <pthread.h>
 
 #define SERVERIP "10.91.54.190"
-#define PEERS 1
+#define PEERS 2
 
 #define ENEMYSPRITE ("libs/resources/enemysprite.png")
 #define PLAYERSPRITE ("libs/resources/playersprite.png")
 #define WINDOW_WIDTH (1280)
 #define WINDOW_HEIGHT (720)
+#define INTERVAL 30
 
 char *known_hosts[PEERS];
+int tried_to_send[PEERS] = {0};
+int successfully_received[PEERS] = {0};
 int **mapping_ports_ids_peers_ids;
 char local_ip_address[100];
 int my_id = -1;
@@ -32,7 +36,7 @@ SDL_Renderer *renderer;
 Map map;
 SDL_Texture *bulletTexture;
 SDL_Surface *bullet;
-
+SDL_Rect rect[PEERS];
 //structure that is used to store x,y coordinates
 struct Coordinate {
     int x;
@@ -40,10 +44,10 @@ struct Coordinate {
 };
 
 // tanks' spawn points
-struct Coordinate spawn_points[8] = {{.x = 0, .y=240},
-                                     {.x = 0, .y=430},
-                                     {.x = 599, .y=430},
-                                     {.x = 599, .y=0},
+struct Coordinate spawn_points[8] = {{.x = 0, .y=0},
+                                     {.x = 0, .y=670},
+                                     {.x = 1230, .y=0},
+                                     {.x = 1230, .y=670},
                                      {.x = 0, .y=0},
                                      {.x = 0, .y=143},
                                      {.x = 440, .y=200},
@@ -151,6 +155,7 @@ void init_sprite(int id) {
     sprite = sprite_init(sprite, window, renderer);
     tanks[id] = sprite;
 }
+
 /**
  * Method used to join the gaming lobby.
  * Establishes connection with the announcement server.
@@ -187,7 +192,7 @@ void join_waiting_room() {
     }
     // wait for other peers to finish
     printf("Synchronization... \n");
-    sleep(5);
+    sleep(2);
     printf("Request for known hosts... \n");
 
     // request the list of known hosts
@@ -221,6 +226,7 @@ void join_waiting_room() {
         if (strcmp(local_ip_address, known_hosts[i]) == 0)
             my_id = i;
 }
+
 /**
  * Method used to determine id of the specified host.
  *
@@ -258,18 +264,19 @@ _Noreturn void *server_function(void *arg) {
 
     printf("Server running on port %d.\n", ports[port]);
     int client;
-    char request[255];
+    char request[25];
     struct sockaddr_in *pV4Addr;
     struct in_addr ipAddr;
     char client_address[INET_ADDRSTRLEN];
     int peer_idx;
     while (1) {
+        usleep(50 * 1000);
         // accept connection via correspondent socket
         client = accept(p2p->servers[server_id].socket, (struct sockaddr *) &address,
-                            (socklen_t *) &address_length);
+                        (socklen_t *) &address_length);
 
-        memset(request, 0, 255);
-        read(client, request, 255);
+        memset(request, 0, 25);
+        read(client, request, 25);
 
         // get string representation of client's ip
         pV4Addr = (struct sockaddr_in *) &address;
@@ -279,6 +286,7 @@ _Noreturn void *server_function(void *arg) {
 
         // determine index of the tank
         peer_idx = get_id_known_host(client_address);
+        successfully_received[peer_idx]++;
         // update data of the sprite
         RecvPos(request, &tanks[peer_idx]);
         close(client);
@@ -296,6 +304,11 @@ _Noreturn void *server_function(void *arg) {
  * @param arg - instance of class PeerToPeer.
  */
 _Noreturn void *client_function(void *arg) {
+    for (int i = 0; i < PEERS; i++) {
+        if (!tanks[i].alive)
+            SDL_DestroyTexture(tanks[i].sprite_texture);
+    }
+
     // unpack the argument
     struct PeerToPeer *p2p = arg;
 
@@ -310,9 +323,7 @@ _Noreturn void *client_function(void *arg) {
     struct Client client;
     while (!close_requested) {
         //check for event
-
         EventHandler(event, &tanks[my_id], &close_requested, map.walls, tanks);
-
 
         // serialize the data of sprite
         SendPos(&tanks[my_id]);
@@ -322,8 +333,9 @@ _Noreturn void *client_function(void *arg) {
             // for all peers except the current
             if (i != my_id) {
                 // send the self and bullet's position, direction
+                tried_to_send[i]++;
                 client = client_constructor(p2p->domain, p2p->service, p2p->protocol,
-                                                          ports[mapping_ports_ids_peers_ids[my_id][i]], p2p->interface);
+                                            ports[mapping_ports_ids_peers_ids[my_id][i]], p2p->interface);
                 client.request(&client, known_hosts[i], request);
             }
         }
@@ -332,23 +344,20 @@ _Noreturn void *client_function(void *arg) {
         render_map(renderer, &map);
 
         for (int i = 0; i < PEERS; i++) {
-            if(tanks[i].alive) {
+            if (tanks[i].alive) {
                 RenderSprite(renderer, &tanks[i]);
-                if (tanks[i].bullet.isShot) {
-                    SDL_Rect rect = {(int) tanks[i].bullet.x, (int) tanks[i].bullet.y, 12, 12};
-                    SDL_RenderCopy(renderer, bulletTexture, NULL, &rect);
-                }
-            }
-            else{
-                SDL_DestroyTexture(tanks[i].sprite_texture);
-            }
 
-
+                rect[i].x = (int) tanks[i].bullet.x;
+                rect[i].y = (int) tanks[i].bullet.y;
+                rect[i].h = 12;
+                rect[i].w = 12;
+                SDL_RenderCopy(renderer, bulletTexture, NULL, &rect[i]);
+            }
         }
+
         SDL_RenderPresent(renderer);
         SDL_Delay(10);
         usleep(50 * 1000);
-
     }
 
     // clean up resources before exiting
@@ -391,6 +400,28 @@ void init_mapping_peers_ports() {
     }
 }
 
+/**
+ * Method used to display statistics about packages transmission using stdin.
+ * In the course of work, program saves number of packages sent to and received from other peers.
+ */
+void display_statistics(void *arg) {
+    int *interval = (int *) arg;
+    while (1) {
+        sleep(*interval);
+        printf("Statistics on sent (by current peer) packages:\n");
+        for (int i = 0; i < PEERS; i++) {
+            printf("%s: %d\n", known_hosts[i], tried_to_send[i]);
+        }
+        printf("\n");
+
+        printf("Statistics on received packages:\n");
+        for (int i = 0; i < PEERS; i++) {
+            printf("%s: %d\n", known_hosts[i], successfully_received[i]);
+        }
+        printf("\n");
+    }
+}
+
 int main() {
     // disable errors for broken pipe occurring when socket is busy/sigaction(SIGPIPE, &(struct sigaction) {SIG_IGN}, NULL);
     sigaction(SIGPIPE, &(struct sigaction) {SIG_IGN}, NULL);
@@ -400,6 +431,12 @@ int main() {
     init_variables_visualization();
     // fill in table with ids mapping peers addresses and ports for socket creation
     init_mapping_peers_ports();
+
+    // display statistics
+    pthread_t thread_statistics;
+    int interval = INTERVAL;
+    pthread_create(&thread_statistics, NULL, display_statistics, (void *) &interval);
+
     // initialize host as peer
     struct PeerToPeer p2p = peer_to_peer_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, *known_hosts, PEERS, my_id,
                                                      mapping_ports_ids_peers_ids, server_function, client_function);
