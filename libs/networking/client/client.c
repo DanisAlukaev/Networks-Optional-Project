@@ -1,16 +1,13 @@
 #include "client.h"
-
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <string.h>
 #include <unistd.h>
 
 // MARK: FUNCTION PROTOTYPES
-
 char *request(struct Client *client, char *server_ip, char *request);
 
 // MARK: CONSTRUCTORS
-
 struct Client client_constructor(int domain, int service, int protocol, int port, u_long interface) {
     // Instantiate a client object.
     struct Client client;

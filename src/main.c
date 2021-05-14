@@ -12,9 +12,11 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 #include <pthread.h>
+#include <SDL2/SDL_ttf.h>
+#include <time.h>
 
-#define SERVERIP "10.91.54.190"
-#define PEERS 2
+#define SERVERIP "192.168.0.107"
+#define PEERS 3
 
 #define ENEMYSPRITE ("libs/resources/enemysprite.png")
 #define PLAYERSPRITE ("libs/resources/playersprite.png")
@@ -28,8 +30,13 @@ int successfully_received[PEERS] = {0};
 int **mapping_ports_ids_peers_ids;
 char local_ip_address[100];
 int my_id = -1;
-Sprite tanks[PEERS];
 
+
+time_t last_arrived[PEERS] = {0};
+double sum_delays = 0;
+int arrived_packages = 0;
+
+Sprite tanks[PEERS];
 SDL_Window *window;
 Uint32 render_flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 SDL_Renderer *renderer;
@@ -37,6 +44,10 @@ Map map;
 SDL_Texture *bulletTexture;
 SDL_Surface *bullet;
 SDL_Rect rect[PEERS];
+SDL_Rect rect3[PEERS];
+SDL_Texture *textures[PEERS];
+TTF_Font *font;
+
 //structure that is used to store x,y coordinates
 struct Coordinate {
     int x;
@@ -128,8 +139,11 @@ void init_variables_visualization() {
     map = map_init(map, window, renderer);
     render_map(renderer, &map);
 
+
+    SDL_RenderPresent(renderer);
     // initialize bullets
     bullet = IMG_Load("libs/resources/bullet.png");
+
     if (!bullet) {
         printf("Cannot find bullet\n");
         return;
@@ -270,7 +284,6 @@ _Noreturn void *server_function(void *arg) {
     char client_address[INET_ADDRSTRLEN];
     int peer_idx;
     while (1) {
-        usleep(50 * 1000);
         // accept connection via correspondent socket
         client = accept(p2p->servers[server_id].socket, (struct sockaddr *) &address,
                         (socklen_t *) &address_length);
@@ -289,6 +302,16 @@ _Noreturn void *server_function(void *arg) {
         successfully_received[peer_idx]++;
         // update data of the sprite
         RecvPos(request, &tanks[peer_idx]);
+
+        // statistics
+        arrived_packages++;
+        double diff_t;
+        time_t previous_arrived = last_arrived[server_id];
+        time(&last_arrived[server_id]);
+        if (previous_arrived != 0) {
+            diff_t = difftime(last_arrived[server_id], previous_arrived);
+            sum_delays += diff_t;
+        }
         close(client);
     }
 }
@@ -321,9 +344,25 @@ _Noreturn void *client_function(void *arg) {
     SDL_Event event;
     char *request;
     struct Client client;
+
+    TTF_Init();
+    font = TTF_OpenFont("libs/resources/OpenSans-Bold.ttf", 30);
+    SDL_Color color = {0, 100, 0};
+
+    SDL_Surface *surfaces[PEERS];
+    for (int i = 0; i < PEERS; i++) {
+        surfaces[i] = TTF_RenderText_Solid(font, known_hosts[i], color);
+        textures[i] = SDL_CreateTextureFromSurface(renderer, surfaces[i]);
+        SDL_FreeSurface(surfaces[i]);
+
+    }
+
+    TTF_CloseFont(font);
+    int texW = 30;
+    int texH = 8;
     while (!close_requested) {
         //check for event
-        EventHandler(event, &tanks[my_id], &close_requested, map.walls, tanks);
+        EventHandler(event, &tanks[my_id], &close_requested, map, tanks);
 
         // serialize the data of sprite
         SendPos(&tanks[my_id]);
@@ -351,10 +390,16 @@ _Noreturn void *client_function(void *arg) {
                 rect[i].y = (int) tanks[i].bullet.y;
                 rect[i].h = 12;
                 rect[i].w = 12;
+
+                rect3[i].x = (int) tanks[i].dest.x - 10;
+                rect3[i].y = (int) tanks[i].dest.y - 33;
+                rect3[i].h = 30;
+                rect3[i].w = 90;
+
+                SDL_RenderCopy(renderer, textures[i], NULL, &rect3[i]);
                 SDL_RenderCopy(renderer, bulletTexture, NULL, &rect[i]);
             }
         }
-
         SDL_RenderPresent(renderer);
         SDL_Delay(10);
         usleep(50 * 1000);
@@ -363,6 +408,9 @@ _Noreturn void *client_function(void *arg) {
     // clean up resources before exiting
     SDL_DestroyRenderer(renderer);
     SDL_DestroyTexture(map.map_texture);
+    for (int i = 0; i < PEERS; i++) {
+        SDL_DestroyTexture(textures[i]);
+    }
     for (int i = 0; i < PEERS; i++) {
         SDL_DestroyTexture(tanks[i].sprite_texture);
     }
@@ -408,17 +456,19 @@ void display_statistics(void *arg) {
     int *interval = (int *) arg;
     while (1) {
         sleep(*interval);
-        printf("Statistics on sent (by current peer) packages:\n");
-        for (int i = 0; i < PEERS; i++) {
-            printf("%s: %d\n", known_hosts[i], tried_to_send[i]);
-        }
-        printf("\n");
-
-        printf("Statistics on received packages:\n");
-        for (int i = 0; i < PEERS; i++) {
-            printf("%s: %d\n", known_hosts[i], successfully_received[i]);
-        }
-        printf("\n");
+//        printf("Statistics on sent (by current peer) packages:\n");
+//        for (int i = 0; i < PEERS; i++) {
+//            printf("%s: %d\n", known_hosts[i], tried_to_send[i]);
+//        }
+//        printf("\n");
+//
+//        printf("Statistics on received packages:\n");
+//        for (int i = 0; i < PEERS; i++) {
+//            printf("%s: %d\n", known_hosts[i], successfully_received[i]);
+//        }
+//        printf("\n");
+        float average_delay = (float) sum_delays / arrived_packages;
+        printf("Average delay: %.6f\n", average_delay);
     }
 }
 

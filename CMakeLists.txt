@@ -10,9 +10,11 @@ target_link_libraries(${PROJECT_NAME} LinkedLists)
 add_subdirectory(./libs/networking/peer_to_peer)
 target_link_libraries(${PROJECT_NAME} PeerToPeer)
 
-
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
+find_package(SDL2 REQUIRED)
+find_library(SDL2TTF_LIBRARIES SDL_ttf)
+find_package(SDL_ttf REQUIRED)
 target_link_libraries(${PROJECT_NAME} pthread)
 
-target_link_libraries(${PROJECT_NAME} SDL2_image-2.0 SDL2main SDL2)
+target_link_libraries(${PROJECT_NAME} SDL2_image-2.0 -lSDL2_ttf SDL2main SDL2)

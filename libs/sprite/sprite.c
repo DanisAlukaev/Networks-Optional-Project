@@ -1,20 +1,18 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
-#include <SDL2/SDL_image.h>
 #include <unistd.h>
-#include <time.h>
 #include "sprite.h"
-#include "../wall/wall.h"
-#include "../bullet/bullet.h"
 
-
-#define MAX_BULLETS 1000
 #define WINDOW_WIDTH (1280)
 #define WINDOW_HEIGHT (720)
 #define SPEED (300)
-#define PEERS 2
+#define PEERS 3
 
+/**
+ * function that initializes the tank by setting its dimension and initial position
+ * as well as its direction and isShot to zero
+ */
 Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
 
     int frame_width, frame_height;
@@ -39,8 +37,8 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
     sprite.src.h =  frame_height;
 
     //setting dimensions of the destination rect
-    sprite.dest.w = sprite.src.w/2-5;
-    sprite.dest.h = sprite.src.h/2-5;
+    sprite.dest.w = 60;
+    sprite.dest.h = 60;
 
 
     sprite.x_pos = (float) sprite.dest.x;
@@ -55,23 +53,33 @@ Sprite sprite_init(Sprite sprite, SDL_Window *window, SDL_Renderer *renderer) {
     return sprite;
 }
 
+/**
+ * function for collision detection between sprite and wall
+ * All four cases are considered (when tank moves from down, up, left, and right)
+ * tank will stay in the same position if it wants to move into the wall
+ */
 void avoid_wall(Wall *wall, Sprite *sprite){
-    if(sprite->x_pos>wall->x-sprite->dest.w+5 && sprite->x_pos<wall->x+(float)wall->rec.w-5 && sprite->y_pos<=wall->y+(float)wall->rec.h && sprite->y_pos>wall->y+(float)wall->rec.h-15) {
-        sprite->y_pos = wall->y+(float)wall->rec.h;
+    if(sprite->x_pos>wall->x-sprite->dest.w+5 && sprite->x_pos<wall->x+(float)wall->rec.w-5 && sprite->y_pos<=wall->y+(float)wall->rec.h+20 && sprite->y_pos>wall->y+(float)wall->rec.h+5) {
+        sprite->y_pos = wall->y+(float)wall->rec.h+20;
     }
-    if(sprite->x_pos>wall->x-sprite->dest.w+5 && sprite->x_pos<wall->x+(float)wall->rec.w-5 && sprite->y_pos>=wall->y-sprite->dest.h && sprite->y_pos<wall->y) {
-        sprite->y_pos = wall->y-sprite->dest.h;
+    if(sprite->x_pos>wall->x-sprite->dest.w+5 && sprite->x_pos<wall->x+(float)wall->rec.w-5 && sprite->y_pos>=wall->y-sprite->dest.h+10 && sprite->y_pos<wall->y) {
+        sprite->y_pos = wall->y-sprite->dest.h+10;
     }
-    if(sprite->x_pos>=(float) wall->x+wall->rec.w-5 && sprite->x_pos<=(float) wall->x+wall->rec.w+5 && sprite->y_pos>=(float) wall->y-sprite->dest.h+2 && sprite->y_pos<=wall->y+(float) wall->rec.h-1) {
-        sprite->x_pos = (float) wall->x+wall->rec.w+5;
+    if(sprite->x_pos>=(float) wall->x+wall->rec.w-10 && sprite->x_pos<=(float) wall->x+wall->rec.w+10 && sprite->y_pos>=(float) wall->y-sprite->dest.h+15 && sprite->y_pos<=wall->y+(float) wall->rec.h+5) {
+        sprite->x_pos = (float) wall->x+wall->rec.w+10;
     }
-    if(sprite->x_pos>=(float) wall->x-sprite->dest.w-5 && sprite->x_pos<=(float) wall->x-sprite->dest.w+5 && sprite->y_pos>=(float) wall->y-sprite->dest.h+2 && sprite->y_pos<=wall->y+(float) wall->rec.h-1) {
+    if(sprite->x_pos>=(float) wall->x-sprite->dest.w-5 && sprite->x_pos<=(float) wall->x-sprite->dest.w+20 && sprite->y_pos>=(float) wall->y-sprite->dest.h+15 && sprite->y_pos<=wall->y+(float) wall->rec.h+5) {
         sprite->x_pos =(float) wall->x-sprite->dest.w-5;
     }
 }
 
-
-void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall walls[], Sprite *tanks){
+/**
+ * function that handles a particular event and moves a sprite to the direction pressed by the button
+ * Also it creates a bullet if tank has shot and moves the bullet to the corresponding direction
+ * until collision with wall or another sprite
+ * If tank was hit by the bullet, both the tank and bullet will disappear
+ */
+void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Map map, Sprite *tanks){
 
     while(SDL_PollEvent(&event)){
         switch (event.type){
@@ -101,18 +109,18 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall wa
 
                         if(sprite->alive) {
                             if (sprite->direction == 0 && !sprite->bullet.isShot) {
-                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos-7, 0, -15);
+                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos-8, 0, -20);
                             }
                             else if (sprite->direction == 1 && !sprite->bullet.isShot) {
-                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos + 57, 0,
-                                                         15);
+                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + sprite->dest.w / 2 - 3, sprite->y_pos + sprite->dest.h+8, 0,
+                                                         20);
                             }
                             else if (sprite->direction == 2 && !sprite->bullet.isShot) {
-                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + 50, sprite->y_pos + sprite->dest.w / 2 + 1, 15,
+                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos + 60 + 7, sprite->y_pos + sprite->dest.w / 2 - 3, 20,
                                                          0);
                             }
                             else if (sprite->direction == 3 && !sprite->bullet.isShot) {
-                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos - 7, sprite->y_pos + (sprite->dest.w) / 2 + 2, -15,
+                                sprite->bullet=addBullet(&sprite->bullet, sprite->x_pos - 7, sprite->y_pos + (sprite->dest.w) / 2 - 3, -20,
                                                          0);
                             }
 
@@ -165,7 +173,7 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall wa
 
     //walls
     for(int i = 0; i<20;i++) {
-        avoid_wall(&walls[i], sprite);
+        avoid_wall(&map.walls[i], sprite);
     }
 
     sprite->dest.y = (int) sprite->y_pos;
@@ -188,8 +196,8 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall wa
 
         else {
             for (int j = 0; j < 20; j++) {
-                if (sprite->bullet.x >= walls[j].x-5 && sprite->bullet.x <= walls[j].x + walls[j].rec.w+1 &&
-                    sprite->bullet.y >= walls[j].y - 7 && sprite->bullet.y <= walls[j].y + walls[j].rec.h) {
+                if (sprite->bullet.x >= map.walls[j].x - 5 && sprite->bullet.x <= map.walls[j].rec.x + map.walls[j].rec.w &&
+                    sprite->bullet.y >= map.walls[j].rec.y - 7 && sprite->bullet.y <= map.walls[j].rec.y + map.walls[j].rec.h) {
                     sprite->bullet=remove_bullet(&sprite->bullet);
                     break;
                 }
@@ -200,9 +208,10 @@ void EventHandler(SDL_Event event, Sprite *sprite, int *close_requested, Wall wa
 
 }
 
-
-
-
+/**
+ * function that rotates  the sprite's image by some angle (90, 180, 270 degrees)
+ * according to the direction
+ */
 void RenderSprite(SDL_Renderer *renderer, Sprite *sprite){
     switch (sprite->direction){
         case 0:     //sprite is facing up
@@ -225,7 +234,9 @@ void RenderSprite(SDL_Renderer *renderer, Sprite *sprite){
 
 }
 
-
+/**
+ * function that collects the sprites information into the message that will be sent to other peers
+ */
 void SendPos(Sprite *sprite){
     int x, y, dir, bullet_x, bullet_y, alive;
     x = sprite->dest.x;
@@ -237,12 +248,11 @@ void SendPos(Sprite *sprite){
     sprintf(sprite->message, "%d %d %d %d %d %d\n", x, y, dir, bullet_x, bullet_y, alive);
 }
 
-
+/**
+ * function that initializes the sprite according to the message that is received from other peers
+ * this is used to render them on the window
+ */
 void RecvPos(char *message, Sprite *sprite){
-
-    //char *message = "1324 1234 5"
-    //char message[10]
-
     int nums[6];
     int len = strlen(message);
     char mes [len];

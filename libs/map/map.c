@@ -3,16 +3,17 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 #include "map.h"
-#include "../wall/wall.h"
 
 #define WINDOW_WIDTH (1280)
 #define WINDOW_HEIGHT (720)
 #define SPEED (130)
 #define MAP ("libs/resources/background.jpg")
 
-Wall *walls[20] = {NULL};
-
-//
+/**
+ * function that initializes the map by the given image
+ * and walls on given positions of the map. Also this function sets walls' height and width
+ *
+ */
 Map map_init(Map map, SDL_Window *window, SDL_Renderer *renderer) {
     //creating map texture
     map.map_texture = IMG_LoadTexture(renderer, MAP);
@@ -29,6 +30,7 @@ Map map_init(Map map, SDL_Window *window, SDL_Renderer *renderer) {
 
     SDL_QueryTexture(map.map_texture, NULL, NULL, &map.map.w, &map.map.h);
 
+    //creating each wall
     Wall wall1;
     wall1.x = 100;
     wall1.y = 55;
@@ -191,9 +193,17 @@ Map map_init(Map map, SDL_Window *window, SDL_Renderer *renderer) {
     wall20 = wall_init(wall20, window, renderer);
     map.walls[19] = wall20;
 
+    for(int i=0;i<20;i++){
+        map.walls[i].rec.y=map.walls[i].rec.y+20;
+        map.walls[i].rec.h=map.walls[i].rec.h-20;
+    }
+
     return map;
 }
 
+/**
+ * function that renders map and each wall to the window
+ */
 void render_map(SDL_Renderer *renderer, Map *map) {
 
     SDL_Texture *wallTexture;
